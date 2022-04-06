@@ -23,8 +23,7 @@ void Off_draw(Off const * off) {
 }
 
 vec Off_center(Off const * off) {
-    vec c;
-    c.x = c.y = c.z = 0;
+    vec c = Zero();
 
     for (unsigned i = 0; i < off->nverts; ++i)
         c = Add(&c, &off->verts[i]);
