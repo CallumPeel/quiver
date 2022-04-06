@@ -62,13 +62,13 @@ vec Normalize(vec const * v) {
     return Div(v, Length(v));
 }
 
-double dot(vec const * u, vec const * v) {
+double Dot(vec const * u, vec const * v) {
     return    u->x * v->x
             + u->y * v->y
             + u->z * v->z;
 }
 
-vec cross(vec const * u, vec const * v) {
+vec Cross(vec const * u, vec const * v) {
     vec w;
 
     w.x = u->y * v->z - u->z * v->y;

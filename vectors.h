@@ -16,7 +16,7 @@ double Length(vec const * v);
 double Length_squared(vec const * v);
 vec Normalize(vec const * v);
 
-double dot(vec const * u, vec const * v);
-vec cross(vec const * u, vec const * v);
+double Dot(vec const * u, vec const * v);
+vec Cross(vec const * u, vec const * v);
 
 #endif // MATH_H_INCLUDED
