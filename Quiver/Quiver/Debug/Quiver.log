@@ -1,15 +1,13 @@
-﻿  Main.c
-  WorldView.c
-C:\Repositories\quiver\Quiver\WorldView.c(102,43): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Repositories\quiver\Quiver\WorldView.c(110,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Repositories\quiver\Quiver\WorldView.c(119,1): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(180,30): warning C4305: 'function': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(180,36): warning C4305: 'function': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(180,42): warning C4305: 'function': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(182,26): warning C4305: 'function': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(182,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(182,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
-C:\Repositories\quiver\Quiver\WorldView.c(353,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Repositories\quiver\Quiver\WorldView.c(354,41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+﻿  WorldView.c
+C:\Repositories\quiver\Quiver\WorldView.c(98,43): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\WorldView.c(106,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Repositories\quiver\Quiver\WorldView.c(115,1): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(176,30): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(176,36): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(176,42): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(178,26): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(178,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(178,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(349,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Repositories\quiver\Quiver\WorldView.c(350,41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Quiver.vcxproj -> C:\Repositories\quiver\Quiver\Debug\Quiver.exe

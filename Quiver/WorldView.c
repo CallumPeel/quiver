@@ -1,8 +1,4 @@
 #include "WorldView.h"
-#include "Objects.h"
-#include "Collision.h"
-#include "ObjMath.h"
-#include "RenderObject.h"
 
 //------------------------------------------
 

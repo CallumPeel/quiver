@@ -1,5 +1,5 @@
 #include "BoundingBox.h"
-/**
+/*
 int searchNearbyObjects(int numObjects, const OFFObj3d *fCoord, const OFFObj3d *fCoord2, const point3D *coMass, const point3D *coMass2, double dist[], double dist1[]) {
     point3D tempMagnitude;
 
