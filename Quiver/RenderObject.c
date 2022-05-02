@@ -1,6 +1,4 @@
 #include "RenderObject.h"
-#include "Model.h"
-#include "Objects.h"
 
 // display ground
 void renderGround() {
