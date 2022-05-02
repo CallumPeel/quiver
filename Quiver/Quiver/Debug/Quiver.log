@@ -1,0 +1,19 @@
+﻿  BoundingBox.c
+  Collision.c
+C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  Main.c
+C:\Repositories\quiver\Quiver\Main.c(2,10): fatal error C1083: Cannot open include file: 'GL/freeglut.h': No such file or directory
+  Model.c
+C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  Objects.c
+C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  ObjMath.c
+  OffData.c
+C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  ReadFile.c
+C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  RenderObject.c
+C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  WorldView.c
+C:\Repositories\quiver\Quiver\WorldView.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+  Generating Code...
