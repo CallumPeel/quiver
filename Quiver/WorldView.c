@@ -1,21 +1,8 @@
 #include "WorldView.h"
-
-//------------------------------------------
-
 #include "Objects.h"
 #include "Collision.h"
 #include "ObjMath.h"
 #include "RenderObject.h"
-
-//------------------------------------------
-
-//polygon mode
-#define POLYFILL TRUE
-
-#ifndef M_PI
-  #define M_PI 3.14159265358979323846
-#endif
-#define DEG2RAD M_PI/180.0
 
 //------------------------------------------
 
@@ -56,18 +43,21 @@ void *font = GLUT_BITMAP_TIMES_ROMAN_24;
 
             /* object positions */
 
-double targetWithLegs[3][3] = {{1.5f, 0.0f, -30.0f}, //object 1
-                                                    {-3.0f, 0.0f, 0.0f}, //object 2
-                                                  {-3.0f, 0.0f, 0.0f}}; //object 3
+double targetWithLegs[3][3] = {
+    {1.5f, 0.0f, -30.0f}, //object 1
+    {-3.0f, 0.0f, 0.0f}, //object 2
+    {-3.0f, 0.0f, 0.0f} //object 3
+}; 
 float sunAngle = 0.0f;
 
 //------------------------------------------
 
             /* Camera variables */
 
-const GLdouble camPerspect[] = {60.0, 1.0, //pov, aspect
-                                                0.1, 200   //near, far
-                                              };
+const GLdouble camPerspect[] = {
+    60.0, 1.0, //pov, aspect
+    0.1, 200   //near, far
+};
 
 //------------------------------------------
 

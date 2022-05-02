@@ -1,12 +1,8 @@
 #ifndef OFFDATA_H
 #define OFFDATA_H
 
-//------------------------------------------
-
 #include <GL/freeglut.h>
 #include "ObjMath.h"
-
-//------------------------------------------
 
 typedef struct Face {
     int x;
@@ -25,8 +21,6 @@ typedef struct OFFObj3d {
     point3D *rad;
 } OFFObj3d;
 
-//------------------------------------------
-
 /** @brief Assign memory to the size of nVert, nFace, nEdge
  */
 void allocCoordMem(OFFObj3d *fileCoords);
@@ -44,4 +38,3 @@ void findRadiusPerFace(OFFObj3d *fileCoords);
 void objNormalise(OFFObj3d *fileCoords);
 
 #endif // OFFDATA_H
-

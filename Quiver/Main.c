@@ -1,17 +1,9 @@
 #include <stdio.h>
 #include <GL/freeglut.h>
-
-//------------------------------------------
-
 #include "WorldView.h"
 
-//------------------------------------------
-
-            /* window size */
-
+// window size
 int wWidth = 950, wHeight = 700;
-
-//------------------------------------------
 
 int main(int argc, char **argv) {
     // setup window

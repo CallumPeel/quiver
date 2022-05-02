@@ -1,11 +1,5 @@
 #include "Objects.h"
 
-#ifndef M_PI
-  #define M_PI 3.14159265358979323846
-#endif
-#define DEG2RAD M_PI/180.0
-
-
 void drawGroundRange(void) {
     point3 grassGnd[] = {{-1.0f, 0.0f, -0.9f}, {-1.0f, 0.0f, 0.5f}, {-0.9f, 0.0f, 0.5f}, {-0.9f, 0.0f, -0.9f}};
     point3 brownBack[] = {{-1.0f, 0.0f, -0.8f}, {-1.0f, 0.0f, 0.5f}, {-0.5f, 0.0f, 0.5f}, {-0.5f, 0.0f, -0.8f}};
