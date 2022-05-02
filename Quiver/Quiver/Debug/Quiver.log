@@ -1,19 +1,121 @@
 ﻿  BoundingBox.c
   Collision.c
-C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
   Main.c
-C:\Repositories\quiver\Quiver\Main.c(2,10): fatal error C1083: Cannot open include file: 'GL/freeglut.h': No such file or directory
   Model.c
-C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+C:\Repositories\quiver\Quiver\Model.c(22,47): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(23,47): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(25,23): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(26,47): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(27,47): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(29,23): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(30,47): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(31,47): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Model.c(33,23): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
   Objects.c
-C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+C:\Repositories\quiver\Quiver\Objects.c(165,29): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(165,41): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(167,34): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(171,29): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(171,41): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(172,29): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(231,36): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(238,21): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(238,26): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(238,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(242,25): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(242,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(246,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(246,41): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(246,51): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(248,41): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(252,30): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(256,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(256,41): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(256,51): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(258,40): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(262,26): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(266,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(266,41): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(266,51): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(268,40): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(272,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(276,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(276,41): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(276,51): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(278,39): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(329,35): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(340,39): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(495,33): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(495,39): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(496,33): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(496,40): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(499,34): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(499,41): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(499,47): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(500,34): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(500,40): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(500,46): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(503,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(503,39): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(503,44): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(504,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(504,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(504,43): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(507,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(507,43): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(508,37): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(508,42): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(511,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(511,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(511,43): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(512,31): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(512,37): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(512,42): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(515,33): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(515,40): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(515,46): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(516,33): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(516,39): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(516,45): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(519,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(519,39): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(520,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(520,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(367,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(368,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(369,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(370,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(371,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(372,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(373,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(375,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(376,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(377,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(378,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(379,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(380,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(381,1): warning C4305: 'initializing': truncation from 'double' to 'const GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(567,34): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\Objects.c(571,41): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(571,56): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(579,41): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\Objects.c(579,56): warning C4244: 'function': conversion from 'double' to 'GLfloat', possible loss of data
   ObjMath.c
   OffData.c
-C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
   ReadFile.c
-C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
   RenderObject.c
-C:\Repositories\quiver\Quiver\OffData.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+C:\Repositories\quiver\Quiver\RenderObject.c(18,25): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
   WorldView.c
-C:\Repositories\quiver\Quiver\WorldView.h(6,10): fatal error C1083: Cannot open include file: 'freeglut.h': No such file or directory
+C:\Repositories\quiver\Quiver\WorldView.c(112,43): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Repositories\quiver\Quiver\WorldView.c(120,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Repositories\quiver\Quiver\WorldView.c(129,1): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(190,30): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(190,36): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(190,42): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(192,26): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(192,32): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(192,38): warning C4305: 'function': truncation from 'double' to 'GLfloat'
+C:\Repositories\quiver\Quiver\WorldView.c(363,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Repositories\quiver\Quiver\WorldView.c(364,41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Generating Code...
+  Quiver.vcxproj -> C:\Repositories\quiver\Quiver\Debug\Quiver.exe
