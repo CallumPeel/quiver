@@ -1,12 +1,8 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-//------------------------------------------
-
 #include "OffData.h"
 #include "ReadFile.h"
-
-//------------------------------------------
 
 typedef struct GameObject {
     int numObjects;
