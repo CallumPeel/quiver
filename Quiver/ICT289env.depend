@@ -1,0 +1,816 @@
+# depslib dependency file v1.0
+1647418167 source:c:\exclusions\ict289_env\test.c
+	<stdio.h>
+
+1647420396 source:c:\exclusions\dev projects\lab1ex4\main.c
+	<stdio.h>
+	"off.h"
+
+1646640175 c:\exclusions\dev projects\lab1ex4\off.h
+
+1647420396 source:c:\exclusions\dev projects\lab1ex4\off.c
+	<stdio.h>
+	<stdlib.h>
+	"off.h"
+
+1647709528 source:c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex1\src\main.c
+	<stdio.h>
+	<freeglut.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex1\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex1\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex1\include\freeglut_ext.h
+
+1647743972 source:c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2\src\main.c
+	<stdio.h>
+	<freeglut.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2\include\freeglut_ext.h
+
+1647821069 source:c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.3\src\main.c
+	<stdio.h>
+	<freeglut.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.3\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.3\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.3\include\freeglut_ext.h
+
+1649327204 source:c:\exclusions\labs_3-4_ex2.5\main.c
+	"GLUT.h"
+
+1646573426 c:\exclusions\labs_3-4_ex2.5\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1646573426 c:\exclusions\labs_3-4_ex2.5\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1646573426 c:\exclusions\labs_3-4_ex2.5\include\freeglut_ext.h
+
+1647429350 source:c:\exclusions\labs_3-4_ex2.5\math3d.c
+	"math3D.h"
+	<stdlib.h>
+	<math.h>
+
+1647429350 c:\exclusions\labs_3-4_ex2.5\math3d.h
+
+1649234619 c:\exclusions\labs_3-4_ex2.5\off.h
+	<stdio.h>
+	<stdlib.h>
+	"vectors.h"
+
+1649234629 source:c:\exclusions\labs_3-4_ex2.5\off.c
+	"off.h"
+
+1648029852 source:c:\exclusions\labs_3-4_ex2.5\gluthelp.c
+	"gluthelp.h"
+
+1648029852 c:\exclusions\labs_3-4_ex2.5\gluthelp.h
+	"off.h"
+	<freeglut.h>
+
+1648040217 c:\exclusions\labs_3-4_ex2.5\offhelp.h
+	"off.h"
+	<freeglut.h>
+
+1648040338 source:c:\exclusions\labs_3-4_ex2.5\offhelp.c
+	"OffHelp.h"
+
+1647429350 source:c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\math3d.c
+	"math3D.h"
+	<stdlib.h>
+	<math.h>
+
+1647429350 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\math3d.h
+
+1648045409 source:c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\off.c
+	<stdio.h>
+	<stdlib.h>
+	"off.h"
+
+1648045087 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\off.h
+	"math3D.h"
+	"math.h"
+
+1648040338 source:c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\offhelp.c
+	"OffHelp.h"
+
+1648040217 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\offhelp.h
+	"off.h"
+	<freeglut.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1646573426 c:\users\laneo\onedrive - murdoch university\bsc games tech, mob web app dev\200 level\ict289\labs\labs_3-4_ex2.5\include\freeglut_ext.h
+
+1649240550 source:c:\exclusions\labs_3-4_ex2.5\vectors.c
+	"vectors.h"
+
+1649240550 c:\exclusions\labs_3-4_ex2.5\vectors.h
+	<math.h>
+
+1649233045 source:c:\exclusions\labs_3-4_ex2.5\test.c
+	<stdio.h>
+
+1649233716 source:c:\exclusions\labs_3-4_ex2.5\off_helper.c
+	"off_helper.h"
+
+1649234372 c:\exclusions\labs_3-4_ex2.5\off_helper.h
+	<freeglut.h>
+	"vectors.h"
+	"off.h"
+
+1649334201 source:c:\exclusions\labs_3-4_ex2.5\glut.c
+	"GLUT.h"
+
+1649331399 c:\exclusions\labs_3-4_ex2.5\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1649389800 source:c:\users\20140677\exclusions\weeks_5-6_ex3.2\main.c
+	"GLUT.h"
+
+1649390496 c:\users\20140677\exclusions\weeks_5-6_ex3.2\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1649389807 c:\users\20140677\exclusions\weeks_5-6_ex3.2\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1649389807 c:\users\20140677\exclusions\weeks_5-6_ex3.2\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1649389807 c:\users\20140677\exclusions\weeks_5-6_ex3.2\include\freeglut_ext.h
+
+1649389800 c:\users\20140677\exclusions\weeks_5-6_ex3.2\vectors.h
+	<math.h>
+
+1649389800 source:c:\users\20140677\exclusions\weeks_5-6_ex3.2\vectors.c
+	"vectors.h"
+
+1649395012 source:c:\users\20140677\exclusions\weeks_5-6_ex3.2\glut.c
+	"GLUT.h"
+
+1649402820 source:c:\users\20140677\downloads\weeks_5-6_ex3.3\vectors.c
+	"vectors.h"
+
+1649402820 c:\users\20140677\downloads\weeks_5-6_ex3.3\vectors.h
+	<math.h>
+
+1649405550 source:c:\users\20140677\downloads\weeks_5-6_ex3.3\main.c
+	"GLUT.h"
+
+1649406180 c:\users\20140677\downloads\weeks_5-6_ex3.3\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1649402828 c:\users\20140677\downloads\weeks_5-6_ex3.3\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1649402828 c:\users\20140677\downloads\weeks_5-6_ex3.3\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1649402828 c:\users\20140677\downloads\weeks_5-6_ex3.3\include\freeglut_ext.h
+
+1649412663 source:c:\users\20140677\exclusions\weeks_5-6_ex3.3\glut.c
+	"GLUT.h"
+
+1649412717 c:\users\20140677\exclusions\weeks_5-6_ex3.3\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1649402828 c:\users\20140677\exclusions\weeks_5-6_ex3.3\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1649402828 c:\users\20140677\exclusions\weeks_5-6_ex3.3\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1649402828 c:\users\20140677\exclusions\weeks_5-6_ex3.3\include\freeglut_ext.h
+
+1649402820 c:\users\20140677\exclusions\weeks_5-6_ex3.3\vectors.h
+	<math.h>
+
+1649406783 source:c:\users\20140677\exclusions\weeks_5-6_ex3.3\main.c
+	"GLUT.h"
+
+1649402820 source:c:\users\20140677\exclusions\weeks_5-6_ex3.3\vectors.c
+	"vectors.h"
+
+1649491729 source:c:\exclusions\weeks_5-6_ex3.3\glut.c
+	"GLUT.h"
+	<stdio.h>
+
+1649492951 c:\exclusions\weeks_5-6_ex3.3\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1649412882 c:\exclusions\weeks_5-6_ex3.3\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1649412883 c:\exclusions\weeks_5-6_ex3.3\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1649412882 c:\exclusions\weeks_5-6_ex3.3\include\freeglut_ext.h
+
+1649412882 c:\exclusions\weeks_5-6_ex3.3\vectors.h
+	<math.h>
+
+1649488299 source:c:\exclusions\weeks_5-6_ex3.3\main.c
+	"GLUT.h"
+
+1649483120 source:c:\exclusions\weeks_5-6_ex3.3\vectors.c
+	"vectors.h"
+
+1649488299 source:c:\exclusions\freeglut_playground\main.c
+	"GLUT.h"
+
+1649492951 c:\exclusions\freeglut_playground\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1649412882 c:\exclusions\freeglut_playground\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1649412883 c:\exclusions\freeglut_playground\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1649412882 c:\exclusions\freeglut_playground\include\freeglut_ext.h
+
+1649412882 c:\exclusions\freeglut_playground\vectors.h
+	<math.h>
+
+1649483120 source:c:\exclusions\freeglut_playground\vectors.c
+	"vectors.h"
+
+1649500030 source:c:\exclusions\freeglut_playground\glut.c
+	"GLUT.h"
+	<stdio.h>
+
+1651194554 source:c:\users\20140677\exclusions\freeglut_playground\main.c
+	"GLUT.h"
+
+1651213281 c:\users\20140677\exclusions\freeglut_playground\glut.h
+	<freeglut.h>
+	"vectors.h"
+
+1651194555 c:\users\20140677\exclusions\freeglut_playground\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651194555 c:\users\20140677\exclusions\freeglut_playground\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651194555 c:\users\20140677\exclusions\freeglut_playground\include\freeglut_ext.h
+
+1651194554 c:\users\20140677\exclusions\freeglut_playground\vectors.h
+	<math.h>
+
+1651194554 source:c:\users\20140677\exclusions\freeglut_playground\vectors.c
+	"vectors.h"
+
+1651213281 source:c:\users\20140677\exclusions\freeglut_playground\glut.c
+	"GLUT.h"
+	<stdio.h>
+
+1651393257 source:c:\exclusions\ict289env\glut.c
+	"GLUT.h"
+	<stdio.h>
+
+1651553690 c:\exclusions\ict289env\glut.h
+	<freeglut.h>
+	"mathv.h"
+	"radians.h"
+
+1651712498 c:\exclusions\ict289env\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651712498 c:\exclusions\ict289env\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651712498 c:\exclusions\ict289env\include\freeglut_ext.h
+
+1651194556 c:\exclusions\ict289env\vectors.h
+	<math.h>
+
+1651761001 source:c:\exclusions\ict289env\main.c
+	"GLUT_BASE.h"
+	"Geometry3D.h"
+	"Physics.h"
+
+1651194556 source:c:\exclusions\ict289env\vectors.c
+	"vectors.h"
+
+1651750997 c:\exclusions\ict289env\mathv.h
+	<math.h>
+	<float.h>
+
+1651712498 c:\exclusions\ict289env\radians.h
+	<math.h>
+
+1651752766 source:c:\exclusions\ict289env\mathv.c
+	"mathv.h"
+
+1651712498 source:c:\exclusions\ict289env\radians.c
+	"radians.h"
+
+1651552637 source:c:\exclusions\ict289env\input.c
+	"INPUT.h"
+
+1651552763 c:\exclusions\ict289env\input.h
+	<freeglut.h>
+	"mathv.h"
+	"radians.h"
+
+1651194556 c:\exclusions\ict289env\include\glut.h
+	"freeglut_std.h"
+
+1651765144 source:c:\exclusions\ict289env\glut_base.c
+	"GLUT_BASE.h"
+	"radians.h"
+	"Physics.h"
+	"MODELS.h"
+	"TEMPLATES.h"
+
+1651745764 c:\exclusions\ict289env\glut_base.h
+	<freeglut.h>
+	"mathv.h"
+
+1651712498 c:\exclusions\ict289env\models.h
+	<freeglut.h>
+
+1651553921 source:c:\exclusions\ict289env\models.cpp
+	"MODELS.h"
+
+1651712498 source:c:\exclusions\ict289env\models.c
+	"MODELS.h"
+
+1651762284 source:c:\exclusions\ict289env\geometry3d.c
+	"Geometry3D.h"
+
+1651762284 c:\exclusions\ict289env\geometry3d.h
+	"mathv.h"
+	<stdbool.h>
+
+1651764919 source:c:\exclusions\ict289env\physics.c
+	"Physics.h"
+
+1651764876 c:\exclusions\ict289env\physics.h
+	"Geometry3D.h"
+
+1651746830 c:\exclusions\ict289env\templates.h
+
+1651712496 source:c:\users\20140677\exclusions\ict289env\geometry3d.c
+	"Geometry3D.h"
+
+1651712496 c:\users\20140677\exclusions\ict289env\geometry3d.h
+	"mathv.h"
+	<stdbool.h>
+	<float.h>
+
+1651720123 c:\users\20140677\exclusions\ict289env\mathv.h
+	<math.h>
+	<float.h>
+
+1651734552 source:c:\users\20140677\exclusions\ict289env\main.c
+	"GLUT_BASE.h"
+	"Geometry3D.h"
+	"Physics.h"
+
+1651731932 c:\users\20140677\exclusions\ict289env\glut_base.h
+	<freeglut.h>
+	"mathv.h"
+	"radians.h"
+	"MODELS.h"
+	"Physics.h"
+	"TEMPLATES.h"
+
+1651712497 c:\users\20140677\exclusions\ict289env\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651712497 c:\users\20140677\exclusions\ict289env\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651712497 c:\users\20140677\exclusions\ict289env\include\freeglut_ext.h
+
+1651712497 c:\users\20140677\exclusions\ict289env\radians.h
+	<math.h>
+
+1651712496 c:\users\20140677\exclusions\ict289env\models.h
+	<freeglut.h>
+
+1651736450 c:\users\20140677\exclusions\ict289env\physics.h
+	"Geometry3D.h"
+
+1651712497 c:\users\20140677\exclusions\ict289env\templates.h
+
+1651720124 source:c:\users\20140677\exclusions\ict289env\mathv.c
+	"mathv.h"
+
+1651712496 source:c:\users\20140677\exclusions\ict289env\models.c
+	"MODELS.h"
+
+1651736018 source:c:\users\20140677\exclusions\ict289env\physics.c
+	"Physics.h"
+	"TEMPLATES.h"
+
+1651712496 source:c:\users\20140677\exclusions\ict289env\radians.c
+	"radians.h"
+
+1651735769 source:c:\users\20140677\exclusions\ict289env\glut_base.c
+	"GLUT_BASE.h"
+	<stdio.h>
+
+1651799230 source:c:\users\20140677\downloads\balldemo\balldemo\geometry3d.c
+	"Geometry3D.h"
+
+1651799230 c:\users\20140677\downloads\balldemo\balldemo\geometry3d.h
+	"mathv.h"
+	<stdbool.h>
+
+1651799230 c:\users\20140677\downloads\balldemo\balldemo\mathv.h
+	<math.h>
+	<float.h>
+
+1651799230 source:c:\users\20140677\downloads\balldemo\balldemo\glut_base.c
+	"GLUT_BASE.h"
+	"radians.h"
+	"Physics.h"
+	"MODELS.h"
+	"TEMPLATES.h"
+
+1651799230 c:\users\20140677\downloads\balldemo\balldemo\glut_base.h
+	<freeglut.h>
+	"mathv.h"
+
+1651799238 c:\users\20140677\downloads\balldemo\balldemo\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651799238 c:\users\20140677\downloads\balldemo\balldemo\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651799238 c:\users\20140677\downloads\balldemo\balldemo\include\freeglut_ext.h
+
+1651799231 c:\users\20140677\downloads\balldemo\balldemo\radians.h
+	<math.h>
+
+1651800278 c:\users\20140677\downloads\balldemo\balldemo\physics.h
+	"Geometry3D.h"
+
+1651799230 c:\users\20140677\downloads\balldemo\balldemo\models.h
+	<freeglut.h>
+
+1651799231 c:\users\20140677\downloads\balldemo\balldemo\templates.h
+
+1651799230 source:c:\users\20140677\downloads\balldemo\balldemo\main.c
+	"GLUT_BASE.h"
+	"Geometry3D.h"
+	"Physics.h"
+
+1651799230 source:c:\users\20140677\downloads\balldemo\balldemo\mathv.c
+	"mathv.h"
+
+1651799230 source:c:\users\20140677\downloads\balldemo\balldemo\models.c
+	"MODELS.h"
+
+1651799231 source:c:\users\20140677\downloads\balldemo\balldemo\radians.c
+	"radians.h"
+
+1651799230 source:c:\users\20140677\exclusions\balldemo\geometry3d.c
+	"Geometry3D.h"
+
+1651799230 c:\users\20140677\exclusions\balldemo\geometry3d.h
+	"mathv.h"
+	<stdbool.h>
+
+1651799230 c:\users\20140677\exclusions\balldemo\mathv.h
+	<math.h>
+	<float.h>
+
+1651815802 source:c:\users\20140677\exclusions\balldemo\glut_base.c
+	"GLUT_BASE.h"
+	"radians.h"
+	"Physics.h"
+	"MODELS.h"
+	"TEMPLATES.h"
+
+1651815612 c:\users\20140677\exclusions\balldemo\glut_base.h
+	<freeglut.h>
+	"mathv.h"
+
+1651799238 c:\users\20140677\exclusions\balldemo\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651799238 c:\users\20140677\exclusions\balldemo\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651799238 c:\users\20140677\exclusions\balldemo\include\freeglut_ext.h
+
+1651799231 c:\users\20140677\exclusions\balldemo\radians.h
+	<math.h>
+
+1651810983 c:\users\20140677\exclusions\balldemo\physics.h
+	"Geometry3D.h"
+
+1651799230 c:\users\20140677\exclusions\balldemo\models.h
+	<freeglut.h>
+
+1651799231 c:\users\20140677\exclusions\balldemo\templates.h
+
+1651806210 source:c:\users\20140677\exclusions\balldemo\main.c
+	"GLUT_BASE.h"
+	"Geometry3D.h"
+	"Physics.h"
+
+1651799230 source:c:\users\20140677\exclusions\balldemo\mathv.c
+	"mathv.h"
+
+1651799230 source:c:\users\20140677\exclusions\balldemo\models.c
+	"MODELS.h"
+
+1651799231 source:c:\users\20140677\exclusions\balldemo\radians.c
+	"radians.h"
+
+1651827031 source:c:\users\20140677\exclusions\balldemo\physics.c
+	"Physics.h"
+
+1652271696 source:c:\exclusions\balldemo\geometry3d.c
+	"Geometry3D.h"
+	"MATH_EXT.h"
+
+1652271404 c:\exclusions\balldemo\geometry3d.h
+	"VECTORS.h"
+	<stdbool.h>
+
+1651799232 c:\exclusions\balldemo\mathv.h
+	<math.h>
+	<float.h>
+
+1652499265 source:c:\exclusions\balldemo\glut_base.c
+	"GLUT_BASE.h"
+	"VECTORS.h"
+	"Physics.h"
+	"MODELS.h"
+	"TEMPLATES.h"
+	"CAMERA.h"
+
+1652291497 c:\exclusions\balldemo\glut_base.h
+	<freeglut.h>
+
+1651799240 c:\exclusions\balldemo\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651799240 c:\exclusions\balldemo\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651799240 c:\exclusions\balldemo\include\freeglut_ext.h
+
+1651799232 c:\exclusions\balldemo\radians.h
+	<math.h>
+
+1652276036 c:\exclusions\balldemo\physics.h
+	"Geometry3D.h"
+
+1651799232 c:\exclusions\balldemo\models.h
+	<freeglut.h>
+
+1652263878 c:\exclusions\balldemo\templates.h
+
+1652263347 source:c:\exclusions\balldemo\main.c
+	"GLUT_BASE.h"
+	"Geometry3D.h"
+	"Physics.h"
+
+1651799232 source:c:\exclusions\balldemo\mathv.c
+	"mathv.h"
+
+1651799232 source:c:\exclusions\balldemo\models.c
+	"MODELS.h"
+
+1651827032 source:c:\exclusions\balldemo\physics.c
+	"Physics.h"
+
+1651799232 source:c:\exclusions\balldemo\radians.c
+	"radians.h"
+
+1652498141 source:c:\exclusions\balldemo\glut_cam.c
+	"GLUT_CAM.h"
+	"MATH_EXT.h"
+
+1652498445 c:\exclusions\balldemo\glut_cam.h
+	<freeglut.h>
+	"VECTORS.h"
+
+1652289310 c:\exclusions\balldemo\glut_input.h
+	<freeglut.h>
+	"GLUT_CAM.h"
+
+1652289518 source:c:\exclusions\balldemo\glut_input.c
+	"GLUT_INPUT.h"
+	"VECTORS.h"
+	"MATH_EXT.h"
+
+1652458507 source:c:\exclusions\balldemo\vectors.c
+	"VECTORS.h"
+	<math.h>
+
+1652458518 c:\exclusions\balldemo\vectors.h
+
+1652271631 source:c:\exclusions\balldemo\math_ext.c
+	"MATH_EXT.h"
+
+1652271631 c:\exclusions\balldemo\math_ext.h
+	<math.h>
+	<float.h>
+
+1652499321 source:c:\exclusions\balldemo\camera.c
+	"CAMERA.h"
+	"MATH_EXT.h"
+
+1652499321 c:\exclusions\balldemo\camera.h
+	<freeglut.h>
+	"VECTORS.h"
+
+1652501688 source:c:\exclusions\ict289 project files\merge\boundingbox.c
+	"BoundingBox.h"
+
+1652501688 c:\exclusions\ict289 project files\merge\boundingbox.h
+
+1652501688 source:c:\exclusions\ict289 project files\merge\collision.c
+	"Collision.h"
+
+1652501688 c:\exclusions\ict289 project files\merge\collision.h
+	"OffData.h"
+	"ObjMath.h"
+
+1652503944 c:\exclusions\ict289 project files\merge\offdata.h
+	<freeglut.h>
+	"ObjMath.h"
+
+1651799240 c:\exclusions\ict289 project files\merge\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1651799240 c:\exclusions\ict289 project files\merge\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1651799240 c:\exclusions\ict289 project files\merge\include\freeglut_ext.h
+
+1652501688 c:\exclusions\ict289 project files\merge\objmath.h
+	<math.h>
+	<stdlib.h>
+	<stdio.h>
+
+1652501688 source:c:\exclusions\ict289 project files\merge\model.c
+	"Model.h"
+
+1652501688 c:\exclusions\ict289 project files\merge\model.h
+	"OffData.h"
+	"ReadFile.h"
+
+1652501688 c:\exclusions\ict289 project files\merge\readfile.h
+	"OffData.h"
+	<stdio.h>
+
+1652501688 source:c:\exclusions\ict289 project files\merge\objects.c
+	"Objects.h"
+
+1652501688 c:\exclusions\ict289 project files\merge\objects.h
+	"OffData.h"
+	"ReadFile.h"
+
+1652501688 source:c:\exclusions\ict289 project files\merge\objmath.c
+	"ObjMath.h"
+
+1652501688 source:c:\exclusions\ict289 project files\merge\offdata.c
+	"OffData.h"
+
+1652501688 source:c:\exclusions\ict289 project files\merge\readfile.c
+	"ReadFile.h"
+
+1652501688 source:c:\exclusions\ict289 project files\merge\renderobject.c
+	"RenderObject.h"
+
+1652501688 c:\exclusions\ict289 project files\merge\renderobject.h
+	"Model.h"
+	"Objects.h"
+
+1652515939 source:c:\exclusions\ict289 project files\merge\worldview.c
+	"WorldView.h"
+	"CAMERA.h"
+
+1652516023 c:\exclusions\ict289 project files\merge\worldview.h
+	<freeglut.h>
+	"Objects.h"
+	"Collision.h"
+	"ObjMath.h"
+	"RenderObject.h"
+
+1652514602 source:c:\exclusions\ict289 project files\merge\main.c
+	<stdio.h>
+	<freeglut.h>
+	"WorldView.h"
+
+1652499321 source:c:\exclusions\ict289 project files\merge\camera.c
+	"CAMERA.h"
+	"MATH_EXT.h"
+
+1652499321 c:\exclusions\ict289 project files\merge\camera.h
+	<freeglut.h>
+	"VECTORS.h"
+
+1652458518 c:\exclusions\ict289 project files\merge\vectors.h
+
+1652271631 c:\exclusions\ict289 project files\merge\math_ext.h
+	<math.h>
+	<float.h>
+
+1652271631 source:c:\exclusions\ict289 project files\merge\math_ext.c
+	"MATH_EXT.h"
+
+1652458507 source:c:\exclusions\ict289 project files\merge\vectors.c
+	"VECTORS.h"
+	<math.h>
+
