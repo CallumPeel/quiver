@@ -1,114 +1,86 @@
 #include "WorldView.h"
+#include "CAMERA.h"
 
-//------------------------------------------
+//------------------------------------------------------------------------
 
-//window resizing ratio
-double wr = 1.0f;
-
-/* window size */
-int wW = 950, wH = 700;
-int fps = 120;
-
-//------------------------------------------
-
-            /* User Position */
-
-double vertAngle = 0.0f;
-double horizAngle = 0.0f;
-float lx = 0.0f, lz = 0.0f, ly = 1.0f;
-double xPos = 0;
-double yPos = 0;
-double zPos = 0;
-double forwardMove = 0;
-double sideMove = 0;
-
-//------------------------------------------
-
-            /* movement speed */
-
-double speed = 1.0f;
-double mSpeed = 0.05f;
-
-//------------------------------------------
-
-GLboolean menu = GL_FALSE;
-
-void *font = GLUT_BITMAP_TIMES_ROMAN_24;
-
-//------------------------------------------
-
-            /* object positions */
-
-double targetWithLegs[3][3] = {
-    {1.5f, 0.0f, -30.0f}, //object 1
-    {-3.0f, 0.0f, 0.0f}, //object 2
-    {-3.0f, 0.0f, 0.0f} //object 3
-}; 
-float sunAngle = 0.0f;
-
-//------------------------------------------
-
-            /* Camera variables */
+Camera cam = {
+    (Vec3){0, 0, 0},  // cam position
+    (Vec3){0, 0, -1.0}, // cam front
+    (Vec3){0, 1.0, 0},  // cam up
+    0.0,                // cam yaw
+    0.0                 // cam pitch
+};
 
 const GLdouble camPerspect[] = {
     60.0, 1.0, //pov, aspect
     0.1, 200   //near, far
 };
 
-//------------------------------------------
+double targetWithLegs[3][3] = {
+    {1.5f, 0.0f, -30.0f}, //object 1
+    {-3.0f, 0.0f, 0.0f}, //object 2
+    {-3.0f, 0.0f, 0.0f} //object 3
+};
+
+//------------------------------------------------------------------------
+
+int fps = 60;
+
+int dt;
+
+double wr = 1.0f; //window resizing ratio
+int winx;
+int winy;
+
+GLboolean menu = GL_FALSE;
+
+void *font = GLUT_BITMAP_TIMES_ROMAN_24;
+
+float sunAngle = 0.0f;
 
 int flag = 0;
 double angle = 90.0;
 double dirX = 0.0;
 double dirZ = 0.0;
-float deltaTime = 0.0f;
-float initTime = 0.0f;
-float currTimeA = 0.0;
 
-//------------------------------------------
+//------------------------------------------------------------------------
 
-void myInit(int ww, int wh) {
-    //Change to Projection matrix
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
+void MoveSun(void);
+void SetLight(void);
+void Set3DOrtho(void);
+void UnSet3DOrtho(void);
+void RenderBitmapString(float x, float y, void *font, char *string);
+void ShowMenu(void);
+void SetPerspective(void);
+void GetDeltaTime(int * dt, int * old_t);
+
+//------------------------------------------------------------------------
+
+void InitDefaults() {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
+    glutSetCursor(GLUT_CURSOR_NONE);
 
     glClearColor(0, 0.5, 1, 1.0f);
     glColor3f(1.0, 0.0, 0.0);
     glLineWidth(1.0);
 
-    if(POLYFILL)
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    else
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
-    setCamera();
+    SetPerspective();
 
     glMatrixMode(GL_MODELVIEW);
 
-    wW = ww;
-    wH = wh;
+    CamLookSpeed = 0.125;
+    CamMoveSpeed = 0.0025;
 }
 
-void getDeltaTime() {
-    GLfloat frameTime;
-
-    frameTime = glutGet(GLUT_ELAPSED_TIME);
-
-    deltaTime = (frameTime - initTime) / 1000;
-
-    initTime = frameTime;
-}
-
-void update() {
-    sunAngle += deltaTime * 0.36;
-
+void MoveSun() {
+    sunAngle += 0.36f * dt/1000.0f;
     if(sunAngle >= 360) sunAngle = 0;
 }
 
-void setLight(void){
+void SetLight(void){
 		// Define RGBA specular colours for object material
 		GLfloat  mat_specular[]  =  {1.0, 1.0, 1.0, 1.0 };
 		GLfloat  light_position[] =  {1.0, 1.0, 1.0, 0.0 };
@@ -135,12 +107,12 @@ void setLight(void){
         glEnable (GL_LIGHT0); // as in flip on the light switch
 }
 
-void setCamera(void) {
+void SetPerspective(void) {
     gluPerspective(camPerspect[0], wr,
                     camPerspect[2], camPerspect[3]);
 }
 
-void set3DOrthoProjection() {
+void Set3DOrtho() {
     // switch to projection mode
     glMatrixMode(GL_PROJECTION);
 
@@ -150,38 +122,22 @@ void set3DOrthoProjection() {
     // reset matrix
     glLoadIdentity();
 
-    setCamera();
+    SetPerspective();
 
     // switch back to modelview mode
     glMatrixMode(GL_MODELVIEW);
 }
 
-void unSet3DOrthoProjection(void) {
+void UnSet3DOrtho(void) {
     // switch to projection mode
     glMatrixMode(GL_PROJECTION);
 
-    setCamera();
+    SetPerspective();
 
     glPopMatrix();
 
     // switch back to modelview mode
     glMatrixMode(GL_MODELVIEW);
-}
-
-void windArrow() {
-    if(!menu) {
-        set3DOrthoProjection();
-
-        glPushMatrix();
-            glTranslatef(-0.1, 0.05, -0.2);
-            glRotated(-horizAngle+angle, 0, 1, 0);
-            glScalef(0.05, 0.05, 0.05);
-            drawWindArrow();
-        glPopMatrix();
-
-        unSet3DOrthoProjection();
-        glLoadIdentity();
-    }
 }
 
 void set2DOrthoProjection(void) {
@@ -195,7 +151,7 @@ void set2DOrthoProjection(void) {
     glLoadIdentity();
 
     // load a 2d orthographic projection
-    gluOrtho2D(0, wW, wH, 0);
+    gluOrtho2D(0, winx, winy, 0);
 
     // switch back to modelview mode
     glMatrixMode(GL_MODELVIEW);
@@ -205,7 +161,7 @@ void unSet2DOrthoProjection(void) {
     // switch to projection mode
     glMatrixMode(GL_PROJECTION);
 
-    setCamera();
+    SetPerspective();
 
     glPopMatrix();
 
@@ -213,7 +169,7 @@ void unSet2DOrthoProjection(void) {
     glMatrixMode(GL_MODELVIEW);
 }
 
-void renderBitmapString(float x, float y, void *font, char *string) {
+void RenderBitmapString(float x, float y, void *font, char *string) {
     char *c;
     glRasterPos2d(x, y);
 
@@ -228,144 +184,103 @@ void renderBitmapString(float x, float y, void *font, char *string) {
     }
 }
 
-void menuLoad(void) {
+void ShowMenu(void) {
     if(menu) {
         set2DOrthoProjection();
 
-        glPushMatrix();
-            glLoadIdentity();
-            glColor3ub(128, 128, 128);
-            renderBitmapString(20, 30, font, "menu is here\nbye\nhello\nglut");
-            drawMenu2D(wW, wH);
-        glPopMatrix();
+        glLoadIdentity();
+        glColor3ub(128, 128, 128);
+        RenderBitmapString(20, 30, font, "menu is here\nbye\nhello\nglut");
+        drawMenu2D(winx, winy);
 
         unSet2DOrthoProjection();
-
-        glLoadIdentity();
     }
 }
 
-void renderPlayerPos() {
-    glRotated(-horizAngle, 0, 1, 0);
-    glRotated(vertAngle, lx, 0, lz);
-    glTranslated(-xPos, 0.0, -zPos);
+void WindArrow(Camera const * cam) {
+    if(!menu) { // do not render if menu is open
+        glPushMatrix();
+            glTranslatef(cam->Pos.x, cam->Pos.y, cam->Pos.z); // move with cam
+            glRotatef(-cam->yaw, 0, 1.0, 0);                // move with -yaw
+            glRotatef(cam->pitch, 1.0, 0, 0);               // move with pitch
+            glTranslatef(-0.1, 0.05, -0.2);                // move to corner
+            glRotatef(cam->yaw+angle, 0, 1.0, 0);           // rotate model
+            glScalef(0.05, 0.05, 0.05);                    // scale model
+            drawWindArrow();                               // draw model
+        glPopMatrix();
+    }
 }
 
-void display(void) {
+void Display(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity(); /* reset transformations */
 
-    setLight();
+    LookAt(&cam);
 
-    glPushMatrix();
-        // changes player position in scene
-        renderPlayerPos();
+    WindArrow(&cam);
 
-        renderGround();
-        renderSun(sunAngle);
-        renderTrees();
+    SetLight();
 
-        renderFences();
-        renderTargets(targetWithLegs);
-        renderHouses();
-    glPopMatrix();
+    renderGround();
+    renderSun(sunAngle);
+    renderTrees();
 
-    windArrow();
-    menuLoad();
-    update();
+    renderFences();
+    renderTargets(targetWithLegs);
+    renderHouses();
+
+    ShowMenu();
+    MoveSun();
 
     glutSwapBuffers();
 }
 
-void reShape(GLsizei w, GLsizei h) {
+void Reshape(int w, int h) {
     if(h == 0)
         h = 1;
 
-    wr = (GLfloat) w / (GLfloat) h;
+    winx = w;
+    winy = h;
+
+    wr = (GLfloat) w / h;
 
     //Change to Projection matrix
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
     glViewport(0, 0, w, h); /* set the viewport */
-    setCamera(); /* set the camera perspective */
+    SetPerspective(); /* set the camera perspective */
 
     glMatrixMode(GL_MODELVIEW);
 }
 
-void setMenu(void) {
-    if(menu)
-        menu = GL_FALSE;
-    else
-        menu = GL_TRUE;
-}
-
-void onKeyPress(unsigned char key, int x, int y) {
+void KeyDown(unsigned char key, int x, int y) {
     switch(key){
-        case 'q':
-            exit(0);
-            break;
-        case 'h': setMenu(); break;
-
-        case 'w': forwardMove += 1; break;
-        case 's': forwardMove += -1; break;
-        case 'a': sideMove += -1; break;
-        case 'd': sideMove += 1; break;
-
+        case 'q': exit(0); break;
+        case 'm': menu = (menu) ? GL_FALSE : GL_TRUE;
         default: break;
     }
+
+    MoveCamKeyDown(&key);
 }
 
-void onKeyRelease(unsigned char key, int x, int y) {
-    switch(key){
-        case 'w': forwardMove -= 1; break;
-        case 's': forwardMove -= -1; break;
-        case 'a': sideMove -= -1; break;
-        case 'd': sideMove -= 1; break;
-
-        default: break;
-    }
+void KeyUp(unsigned char key, int x, int y) {
+    MoveCamKeyUp(&key);
 }
 
-void userPosition(void) {
-    if(forwardMove){
-        xPos += forwardMove * sin(-horizAngle*DEG2RAD) * 0.05f;
-        zPos += forwardMove * -cos(-horizAngle*DEG2RAD) * 0.05f;
-    }
-    if(sideMove){
-        xPos += sideMove * sin(-horizAngle*DEG2RAD + 3.14159/2) * 0.05f;
-        zPos += sideMove * -cos(-horizAngle*DEG2RAD + 3.14159/2) * 0.05f;
-    }
+void Mouse(int x, int y) {
+    LookCam(&x, &y, &winx, &winy, &cam);
+}
 
-    // Redisplay the window content
+void GetDeltaTime(int * dt, int * old_t)
+{
+    *dt = glutGet(GLUT_ELAPSED_TIME) - *old_t;
+    *old_t += *dt;
+}
+
+void Clock(int t) {
+    GetDeltaTime(&dt, &t);
+    MoveCam(&cam, &dt);
     glutPostRedisplay();
-}
-
-void mouseMove(int x, int y) {
-    horizAngle += mSpeed * wr * ((float)wW/2 - x);
-    vertAngle += mSpeed * ((float)wH/2 - y);
-
-    //camera direction
-    lx = -cos(horizAngle*(3.14159 / 180));
-    lz = sin(horizAngle*(3.14159 / 180));
-
-    // max angles reset
-    if(horizAngle < -360) horizAngle = 0;
-    if(horizAngle > 360) horizAngle = 0;
-    if(vertAngle >= 90) vertAngle = 90;
-    if(vertAngle <= -90) vertAngle = -90;
-
-    glutWarpPointer(wW/2, wH/2);
-
-    // Redisplay the window content
-    glutPostRedisplay();
-}
-
-void timer(int t) {
-    glutTimerFunc(1000/fps, timer, 0);
-
-    userPosition();
-    getDeltaTime();
-
-    glutPostRedisplay();
+    glutTimerFunc(1000/fps, Clock, t);
 }

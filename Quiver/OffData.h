@@ -1,7 +1,7 @@
 #ifndef OFFDATA_H
 #define OFFDATA_H
 
-#include <GL/freeglut.h>
+#include <freeglut.h>
 #include "ObjMath.h"
 
 typedef struct Face {
