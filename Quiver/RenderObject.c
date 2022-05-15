@@ -51,7 +51,12 @@ void renderFences() {
 }
 
 // display all targets
-void renderTargets(double targetWithLegs[3][3]) {
+void renderTargets() {
+    double targetWithLegs[3][3] = {
+    {1.5f, 0.0f, -30.0f}, //object 1
+    {-3.0f, 0.0f, 0.0f}, //object 2
+    {-3.0f, 0.0f, 0.0f} //object 3
+    };
     glPushMatrix();
         for(int i = 0;i < 3;++i) {
             glTranslated(targetWithLegs[i][0], targetWithLegs[i][1], targetWithLegs[i][2]);

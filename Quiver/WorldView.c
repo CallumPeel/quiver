@@ -4,9 +4,9 @@
 //------------------------------------------------------------------------
 
 Camera cam = {
-    (Vec3){0, 0, 0},  // cam position
-    (Vec3){0, 0, -1.0}, // cam front
-    (Vec3){0, 1.0, 0},  // cam up
+    {0, 0, 0},  // cam position
+    {0, 0, -1.0}, // cam front
+    {0, 1.0, 0},  // cam up
     0.0,                // cam yaw
     0.0                 // cam pitch
 };
@@ -14,12 +14,6 @@ Camera cam = {
 const GLdouble camPerspect[] = {
     60.0, 1.0, //pov, aspect
     0.1, 200   //near, far
-};
-
-double targetWithLegs[3][3] = {
-    {1.5f, 0.0f, -30.0f}, //object 1
-    {-3.0f, 0.0f, 0.0f}, //object 2
-    {-3.0f, 0.0f, 0.0f} //object 3
 };
 
 //------------------------------------------------------------------------
@@ -54,9 +48,12 @@ void ShowMenu(void);
 void SetPerspective(void);
 void GetDeltaTime(int * dt, int * old_t);
 
+OFFObj3d* arrow;
+
 //------------------------------------------------------------------------
 
 void InitDefaults() {
+    arrow = loadOFFObj("bone.off");
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
@@ -211,11 +208,25 @@ void WindArrow(Camera const * cam) {
     }
 }
 
+void drawArrow(Camera const* cam) {
+    glPushMatrix();
+        glTranslatef(cam->Pos.x, cam->Pos.y, cam->Pos.z);   // move with cam
+        glRotatef(-cam->yaw, 0, 1.0, 0);                    // move with -yaw
+        glRotatef(cam->pitch, 1.0, 0, 0);                   // move with pitch
+        glTranslatef(0.1, 0, -0.2);                            // move to corner
+        glRotatef(cam->yaw + angle, 0, 1.0, 0);             // rotate model
+        glRotatef(-cam->yaw, 0, 1.0, 0);                    // move with -yaw
+        drawOFFObj(arrow);
+    glPopMatrix();
+}
+
 void Display(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity(); /* reset transformations */
 
     LookAt(&cam);
+
+    drawArrow(&cam);
 
     WindArrow(&cam);
 
@@ -226,7 +237,7 @@ void Display(void) {
     renderTrees();
 
     renderFences();
-    renderTargets(targetWithLegs);
+    renderTargets();
     renderHouses();
 
     ShowMenu();
