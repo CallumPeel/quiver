@@ -62,7 +62,7 @@ GameObject boneObj;
 
 //------------------------------------------------------------------------
 
-void InitDefaults() {
+void initializeModels() {
 
     arrow = loadOFFObj("arrow.off");
     allocGObjectMem(&arrowObj);
@@ -79,6 +79,12 @@ void InitDefaults() {
     boneObj.position->z = -4;
     boneObj.obj = bone;
     boneObj.box = getBoundingBox(*bone);
+
+}
+
+void InitDefaults() {
+
+    initializeModels();
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
