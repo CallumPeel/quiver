@@ -12,6 +12,7 @@ typedef struct GameObject {
     int numObjects;
     point3D *position;
     BoundingBox box;
+    OFFObj3d* obj;
 } GameObject;
 
 OFFObj3d *loadOFFObj(const char *nFile);

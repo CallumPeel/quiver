@@ -76,6 +76,7 @@ void InitDefaults() {
     boneObj.position->x = 0;
     boneObj.position->y = 0;
     boneObj.position->z = -4;
+    boneObj.obj = bone;
     boneObj.box = getBoundingBox(*bone);
 
 
@@ -233,21 +234,13 @@ void WindArrow(Camera const * cam) {
     }
 }
 
-void drawBone() {
-    glPushMatrix();
-        glTranslatef(0,0, boneObj.position->z);
-        drawOFFObj(bone);
-    glPopMatrix();
-}
-
-
 void Display(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity(); /* reset transformations */
 
     LookAt(&cam);
 
-    drawBone();
+    drawBone(boneObj);
     drawBoundingBox(boneObj);
 
     WindArrow(&cam);

@@ -9,6 +9,13 @@ void renderGround() {
     glPopMatrix();
 }
 
+void drawBone(GameObject boneObj) {
+    glPushMatrix();
+        glTranslatef(0,0, boneObj.position->z);
+        drawOFFObj(boneObj.obj);
+    glPopMatrix();
+}
+
 // display sun
 void renderSun(double sunAngle) {
     glPushMatrix();
