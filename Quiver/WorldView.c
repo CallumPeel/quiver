@@ -54,9 +54,31 @@ void ShowMenu(void);
 void SetPerspective(void);
 void GetDeltaTime(int * dt, int * old_t);
 
+
+OFFObj3d* arrow;
+OFFObj3d* bone;
+GameObject arrowObj;
+GameObject boneObj;
+
 //------------------------------------------------------------------------
 
 void InitDefaults() {
+
+//    arrow = loadOFFObj("arrow.off");
+    bone = loadOFFObj("bone.off");
+//    allocGObjectMem(&arrowObj);
+//    arrowObj.position->x = 0;
+//    arrowObj.position->y = 0;
+//    arrowObj.position->z = 0;
+//    arrowObj.box = getBoundingBox(*arrow);
+
+    allocGObjectMem(&boneObj);
+    boneObj.position->x = 0;
+    boneObj.position->y = 0;
+    boneObj.position->z = -4;
+    boneObj.box = getBoundingBox(*bone);
+
+
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
@@ -211,12 +233,21 @@ void WindArrow(Camera const * cam) {
     }
 }
 
+void drawBone() {
+    glPushMatrix();
+        glTranslatef(0,0, boneObj.position->z);
+        drawOFFObj(bone);
+    glPopMatrix();
+}
+
+
 void Display(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity(); /* reset transformations */
 
     LookAt(&cam);
 
+    drawBone();
     WindArrow(&cam);
 
     SetLight();

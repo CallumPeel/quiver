@@ -42,3 +42,20 @@ void allocGObjectMem(GameObject *gObject) {
 void freeGObjectMem(GameObject *gObject) {
     free(gObject->position);
 }
+
+
+BoundingBox getBoundingBox(OFFObj3d model) {
+    BoundingBox box = { 0,0,0,0,0,0 };
+    point3D temp;
+    for (int i = 0; i < model.nVert; i++) {
+        temp = model.vertCoord[i];
+        if (temp.x < box.minX) box.minX = temp.x;
+        if (temp.x > box.maxX) box.maxX = temp.x;
+        if (temp.y > box.maxY) box.maxY = temp.y;
+        if (temp.y < box.minY) box.minY = temp.y;
+        if (temp.z < box.minZ) box.minZ = temp.z;
+        if (temp.z > box.maxZ) box.maxZ = temp.z;
+    }
+    return box;
+}
+
