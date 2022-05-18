@@ -10,31 +10,33 @@ OFFObj3d *loadOFFObj(const char *nFile) {
     return obj;
 }
 
-void drawOFFObj(const OFFObj3d *coord) {
-    for(int i = 0;i < coord->nFace;++i) {
-        Face f;
+void drawOFFObj(GameObject gameObj) {
+    glPushMatrix();
+        glTranslated(gameObj.position->x, gameObj.position->y, gameObj.position->z);
+        for(int i = 0;i < gameObj.obj->nFace;++i) {
+            Face f;
 
-        f.x = coord->faceCoord[i].x;
-        f.y = coord->faceCoord[i].y;
-        f.z = coord->faceCoord[i].z;
+            f.x = gameObj.obj->faceCoord[i].x;
+            f.y = gameObj.obj->faceCoord[i].y;
+            f.z = gameObj.obj->faceCoord[i].z;
 
-        glBegin(GL_TRIANGLES);
-            glVertex3f(coord->vertCoord[f.x].x,
-                       coord->vertCoord[f.x].y,
-                       coord->vertCoord[f.x].z
-                      );
-            glVertex3f(coord->vertCoord[f.y].x,
-                       coord->vertCoord[f.y].y,
-                       coord->vertCoord[f.y].z
-                      );
-            glVertex3f(coord->vertCoord[f.z].x,
-                       coord->vertCoord[f.z].y,
-                       coord->vertCoord[f.z].z
-                      );
-        glEnd();
-    }
+            glBegin(GL_TRIANGLES);
+                glVertex3f(gameObj.obj->vertCoord[f.x].x,
+                           gameObj.obj->vertCoord[f.x].y,
+                           gameObj.obj->vertCoord[f.x].z
+                          );
+                glVertex3f(gameObj.obj->vertCoord[f.y].x,
+                           gameObj.obj->vertCoord[f.y].y,
+                           gameObj.obj->vertCoord[f.y].z
+                          );
+                glVertex3f(gameObj.obj->vertCoord[f.z].x,
+                           gameObj.obj->vertCoord[f.z].y,
+                           gameObj.obj->vertCoord[f.z].z
+                          );
+            glEnd();
+        }
+    glPopMatrix();
 }
-
 
 void drawBoundingBox(GameObject model) {
     glLineWidth(0.1);
@@ -84,6 +86,7 @@ void drawBoundingBox(GameObject model) {
 
 void allocGObjectMem(GameObject *gObject) {
     gObject->position = (point3D *)malloc(gObject->numObjects * sizeof(point3D));
+    gObject->obj = (OFFObj3d *)malloc(sizeof(OFFObj3d));
 }
 
 void freeGObjectMem(GameObject *gObject) {

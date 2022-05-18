@@ -12,7 +12,7 @@ void renderGround() {
 void drawBone(GameObject boneObj) {
     glPushMatrix();
         glTranslatef(0,0, boneObj.position->z);
-        drawOFFObj(boneObj.obj);
+        drawOFFObj(boneObj);
     glPopMatrix();
 }
 

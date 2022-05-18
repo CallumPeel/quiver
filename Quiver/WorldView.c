@@ -64,21 +64,21 @@ GameObject boneObj;
 
 void InitDefaults() {
 
-//    arrow = loadOFFObj("arrow.off");
-    bone = loadOFFObj("bone.off");
-//    allocGObjectMem(&arrowObj);
-//    arrowObj.position->x = 0;
-//    arrowObj.position->y = 0;
-//    arrowObj.position->z = 0;
-//    arrowObj.box = getBoundingBox(*arrow);
+    arrow = loadOFFObj("arrow.off");
+    allocGObjectMem(&arrowObj);
+    arrowObj.position->x = 0;
+    arrowObj.position->y = 0;
+    arrowObj.position->z = -4;
+    arrowObj.obj = arrow;
+    arrowObj.box = getBoundingBox(*arrow);
 
+    bone = loadOFFObj("bone.off");
     allocGObjectMem(&boneObj);
     boneObj.position->x = 0;
     boneObj.position->y = 0;
     boneObj.position->z = -4;
     boneObj.obj = bone;
     boneObj.box = getBoundingBox(*bone);
-
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
@@ -240,8 +240,11 @@ void Display(void) {
 
     LookAt(&cam);
 
-    drawBone(boneObj);
+    drawOFFObj(boneObj);
     drawBoundingBox(boneObj);
+
+    drawOFFObj(arrowObj);
+    drawBoundingBox(arrowObj);
 
     WindArrow(&cam);
 
@@ -298,8 +301,7 @@ void Mouse(int x, int y) {
     LookCam(&x, &y, &winx, &winy, &cam);
 }
 
-void GetDeltaTime(int * dt, int * old_t)
-{
+void GetDeltaTime(int * dt, int * old_t) {
     *dt = glutGet(GLUT_ELAPSED_TIME) - *old_t;
     *old_t += *dt;
 }
