@@ -13,6 +13,7 @@
 
 //  *** NEEDS COMMENTING ***
 
+void initializeModels();
 void InitDefaults();
 void Display(void);
 void Reshape(int w, int h);

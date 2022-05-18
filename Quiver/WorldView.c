@@ -54,9 +54,38 @@ void ShowMenu(void);
 void SetPerspective(void);
 void GetDeltaTime(int * dt, int * old_t);
 
+
+OFFObj3d* arrow;
+OFFObj3d* bone;
+GameObject arrowObj;
+GameObject boneObj;
+
 //------------------------------------------------------------------------
 
+void initializeModels() {
+
+    arrow = loadOFFObj("arrow.off");
+    allocGObjectMem(&arrowObj);
+    arrowObj.position->x = 0;
+    arrowObj.position->y = 0;
+    arrowObj.position->z = -4;
+    arrowObj.obj = arrow;
+    arrowObj.box = getBoundingBox(*arrow);
+
+    bone = loadOFFObj("bone.off");
+    allocGObjectMem(&boneObj);
+    boneObj.position->x = 0;
+    boneObj.position->y = 0;
+    boneObj.position->z = -4;
+    boneObj.obj = bone;
+    boneObj.box = getBoundingBox(*bone);
+
+}
+
 void InitDefaults() {
+
+    initializeModels();
+
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
@@ -217,6 +246,12 @@ void Display(void) {
 
     LookAt(&cam);
 
+    drawOFFObj(boneObj);
+    drawBoundingBox(boneObj);
+
+    drawOFFObj(arrowObj);
+    drawBoundingBox(arrowObj);
+
     WindArrow(&cam);
 
     SetLight();
@@ -272,8 +307,7 @@ void Mouse(int x, int y) {
     LookCam(&x, &y, &winx, &winy, &cam);
 }
 
-void GetDeltaTime(int * dt, int * old_t)
-{
+void GetDeltaTime(int * dt, int * old_t) {
     *dt = glutGet(GLUT_ELAPSED_TIME) - *old_t;
     *old_t += *dt;
 }

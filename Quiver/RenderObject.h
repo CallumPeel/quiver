@@ -4,6 +4,7 @@
 #include "Model.h"
 #include "Objects.h"
 
+void drawBone(GameObject boneObj);
 void renderGround(void);
 void renderSun(double sunAngle);
 void renderTrees(void);
