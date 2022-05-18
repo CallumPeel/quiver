@@ -248,6 +248,8 @@ void Display(void) {
     LookAt(&cam);
 
     drawBone();
+    drawBoundingBox(boneObj);
+
     WindArrow(&cam);
 
     SetLight();

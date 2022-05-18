@@ -17,6 +17,7 @@ typedef struct GameObject {
 OFFObj3d *loadOFFObj(const char *nFile);
 
 void drawOFFObj(const OFFObj3d *coord);
+void drawBoundingBox(GameObject model);
 
 void allocGObjectMem(GameObject *gObject);
 void freeGObjectMem(GameObject *gObject);

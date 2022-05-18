@@ -35,6 +35,53 @@ void drawOFFObj(const OFFObj3d *coord) {
     }
 }
 
+
+void drawBoundingBox(GameObject model) {
+    glLineWidth(0.1);
+    // Front Face
+    glBegin(GL_LINE_LOOP);
+    glVertex3f(model.box.minX + model.position->x, model.box.maxY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.minY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.minY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.maxY + model.position->y, model.box.minZ + model.position->z);
+    glEnd();
+    // Top Face
+    glBegin(GL_LINE_LOOP);
+    glVertex3f(model.box.minX + model.position->x, model.box.maxY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.maxY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.maxY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.maxY + model.position->y, model.box.minZ + model.position->z);
+    glEnd();
+    // Bottom Face
+    glBegin(GL_LINE_LOOP);
+    glVertex3f(model.box.minX + model.position->x, model.box.minY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.minY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.minY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.minY + model.position->y, model.box.maxZ + model.position->z);
+    glEnd();
+    // Left Face
+    glBegin(GL_LINE_LOOP);
+    glVertex3f(model.box.minX + model.position->x, model.box.maxY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.minY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.minY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.maxY + model.position->y, model.box.maxZ + model.position->z);
+    glEnd();
+    // Right Face
+    glBegin(GL_LINE_LOOP);
+    glVertex3f(model.box.maxX + model.position->x, model.box.maxY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.minY + model.position->y, model.box.minZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.minY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.maxY + model.position->y, model.box.maxZ + model.position->z);
+    glEnd();
+    // Back Face
+    glBegin(GL_LINE_LOOP);
+    glVertex3f(model.box.maxX + model.position->x, model.box.maxY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.maxX + model.position->x, model.box.minY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.minY + model.position->y, model.box.maxZ + model.position->z);
+    glVertex3f(model.box.minX + model.position->x, model.box.maxY + model.position->y, model.box.maxZ + model.position->z);
+    glEnd();
+}
+
 void allocGObjectMem(GameObject *gObject) {
     gObject->position = (point3D *)malloc(gObject->numObjects * sizeof(point3D));
 }
