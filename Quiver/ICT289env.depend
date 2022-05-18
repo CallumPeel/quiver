@@ -918,3 +918,107 @@
 	"WorldView.h"
 	"CAMERA.h"
 
+1651485857 source:c:\repositories\quiver\quiver\boundingbox.c
+	"BoundingBox.h"
+
+1651482528 c:\repositories\quiver\quiver\boundingbox.h
+
+1652588053 source:c:\repositories\quiver\quiver\camera.c
+	"CAMERA.h"
+	"MATH_EXT.h"
+
+1652588053 c:\repositories\quiver\quiver\camera.h
+	<freeglut.h>
+	"VECTORS.h"
+
+1652588053 c:\repositories\quiver\quiver\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1652588053 c:\repositories\quiver\quiver\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1652588053 c:\repositories\quiver\quiver\include\freeglut_ext.h
+
+1652588053 c:\repositories\quiver\quiver\vectors.h
+
+1652588053 c:\repositories\quiver\quiver\math_ext.h
+	<math.h>
+	<float.h>
+
+1651482528 source:c:\repositories\quiver\quiver\collision.c
+	"Collision.h"
+
+1651482528 c:\repositories\quiver\quiver\collision.h
+	"OffData.h"
+	"ObjMath.h"
+
+1652588053 c:\repositories\quiver\quiver\offdata.h
+	<freeglut.h>
+	"ObjMath.h"
+
+1651483980 c:\repositories\quiver\quiver\objmath.h
+	<math.h>
+	<stdlib.h>
+	<stdio.h>
+
+1652588053 source:c:\repositories\quiver\quiver\main.c
+	<stdio.h>
+	<freeglut.h>
+	"WorldView.h"
+
+1652588053 c:\repositories\quiver\quiver\worldview.h
+	<freeglut.h>
+	"Objects.h"
+	"Collision.h"
+	"ObjMath.h"
+	"RenderObject.h"
+
+1652583945 c:\repositories\quiver\quiver\objects.h
+	"OffData.h"
+	"ReadFile.h"
+
+1651482528 c:\repositories\quiver\quiver\readfile.h
+	"OffData.h"
+	<stdio.h>
+
+1652855088 c:\repositories\quiver\quiver\renderobject.h
+	"Model.h"
+	"Objects.h"
+
+1651485051 c:\repositories\quiver\quiver\model.h
+	"OffData.h"
+	"ReadFile.h"
+
+1652588053 source:c:\repositories\quiver\quiver\math_ext.c
+	"MATH_EXT.h"
+
+1651482528 source:c:\repositories\quiver\quiver\model.c
+	"Model.h"
+
+1652583945 source:c:\repositories\quiver\quiver\objects.c
+	"Objects.h"
+
+1651483971 source:c:\repositories\quiver\quiver\objmath.c
+	"ObjMath.h"
+
+1651482528 source:c:\repositories\quiver\quiver\offdata.c
+	"OffData.h"
+
+1651482528 source:c:\repositories\quiver\quiver\readfile.c
+	"ReadFile.h"
+
+1652855088 source:c:\repositories\quiver\quiver\renderobject.c
+	"RenderObject.h"
+
+1652588053 source:c:\repositories\quiver\quiver\vectors.c
+	"VECTORS.h"
+	<math.h>
+
+1652855088 source:c:\repositories\quiver\quiver\worldview.c
+	"WorldView.h"
+	"CAMERA.h"
+
