@@ -95,3 +95,36 @@ void objNormalise(OFFObj3d *fileCoords) {
 
     free((point3D *)com);
 }
+
+void rotateModel(OFFObj3d* obj, double pitch, double roll, double yaw) {
+    double cosa = cos(yaw);
+    double sina = sin(yaw);
+
+    double cosb = cos(pitch);
+    double sinb = sin(pitch);
+
+    double cosc = cos(roll);
+    double sinc = sin(roll);
+
+    double Axx = cosa * cosb;
+    double Axy = cosa * sinb * sinc - sina * cosc;
+    double Axz = cosa * sinb * cosc + sina * sinc;
+
+    double Ayx = sina * cosb;
+    double Ayy = sina * sinb * sinc + cosa * cosc;
+    double Ayz = sina * sinb * cosc - cosa * sinc;
+
+    double Azx = -sinb;
+    double Azy = cosb * sinc;
+    double Azz = cosb * cosc;
+
+    for (int i = 0; i < obj->nVert; i++) {
+        double px = obj->vertCoord[i].x;
+        double py = obj->vertCoord[i].y;
+        double pz = obj->vertCoord[i].z;
+
+        obj->vertCoord[i].x = Axx * px + Axy * py + Axz * pz;
+        obj->vertCoord[i].y = Ayx * px + Ayy * py + Ayz * pz;
+        obj->vertCoord[i].z = Azx * px + Azy * py + Azz * pz;
+    }
+}

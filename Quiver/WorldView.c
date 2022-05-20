@@ -4,9 +4,9 @@
 //------------------------------------------------------------------------
 
 Camera cam = {
-    (Vec3){0, 0, 0},  // cam position
-    (Vec3){0, 0, -1.0}, // cam front
-    (Vec3){0, 1.0, 0},  // cam up
+    {0, 0, 0},  // cam position
+    {0, 0, -1.0}, // cam front
+    {0, 1.0, 0},  // cam up
     0.0,                // cam yaw
     0.0                 // cam pitch
 };
@@ -68,7 +68,7 @@ void initializeModels() {
     allocGObjectMem(&arrowObj);
     arrowObj.position->x = 0;
     arrowObj.position->y = 0;
-    arrowObj.position->z = -4;
+    arrowObj.position->z = -6;
     arrowObj.obj = arrow;
     arrowObj.box = getBoundingBox(*arrow);
 
@@ -76,7 +76,7 @@ void initializeModels() {
     allocGObjectMem(&boneObj);
     boneObj.position->x = 0;
     boneObj.position->y = 0;
-    boneObj.position->z = -4;
+    boneObj.position->z = -2;
     boneObj.obj = bone;
     boneObj.box = getBoundingBox(*bone);
 
@@ -292,6 +292,10 @@ void Reshape(int w, int h) {
 void KeyDown(unsigned char key, int x, int y) {
     switch(key){
         case 'q': exit(0); break;
+        case 'r':
+            rotateModel(arrow, 0.1, 0.1, 0);
+            rotateBoundingBox(&arrowObj, 0.1, 0.1, 0);
+            break;
         case 'm': menu = (menu) ? GL_FALSE : GL_TRUE;
         default: break;
     }
