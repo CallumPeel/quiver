@@ -96,6 +96,7 @@ void freeGObjectMem(GameObject *gObject) {
     free(gObject->position);
 }
 
+
 BoundingBox getBoundingBox(OFFObj3d model) {
     BoundingBox box = { 0,0,0,0,0,0,0,0 };
     double minX = 0, maxX = 0, maxY = 0, minY = 0, minZ = 0, maxZ = 0;
@@ -144,6 +145,52 @@ BoundingBox getBoundingBox(OFFObj3d model) {
     box.h.y = maxY;
     box.h.z = minZ;
 
+
     return box;
 }
 
+point3D rotate(point3D point, double pitch, double roll, double yaw) {
+    double cosa = cos(yaw);
+    double sina = sin(yaw);
+
+    double cosb = cos(pitch);
+    double sinb = sin(pitch);
+
+    double cosc = cos(roll);
+    double sinc = sin(roll);
+
+    double Axx = cosa * cosb;
+    double Axy = cosa * sinb * sinc - sina * cosc;
+    double Axz = cosa * sinb * cosc + sina * sinc;
+
+    double Ayx = sina * cosb;
+    double Ayy = sina * sinb * sinc + cosa * cosc;
+    double Ayz = sina * sinb * cosc - cosa * sinc;
+
+    double Azx = -sinb;
+    double Azy = cosb * sinc;
+    double Azz = cosb * cosc;
+
+    double px = point.x;
+    double py = point.y;
+    double pz = point.z;
+
+    point.x = Axx * px + Axy * py + Axz * pz;
+    point.y = Ayx * px + Ayy * py + Ayz * pz;
+    point.z = Azx * px + Azy * py + Azz * pz;
+
+    return point;
+}
+
+void rotateBoundingBox(GameObject* gameObj, double pitch, double roll, double yaw) {
+    BoundingBox temp = { 0,0,0,0,0,0,0,0 };
+    temp.a = rotate(gameObj->box.a, pitch, roll, yaw);
+    temp.b = rotate(gameObj->box.b, pitch, roll, yaw);
+    temp.c = rotate(gameObj->box.c, pitch, roll, yaw);
+    temp.d = rotate(gameObj->box.d, pitch, roll, yaw);
+    temp.e = rotate(gameObj->box.e, pitch, roll, yaw);
+    temp.f = rotate(gameObj->box.f, pitch, roll, yaw);
+    temp.g = rotate(gameObj->box.g, pitch, roll, yaw);
+    temp.h = rotate(gameObj->box.h, pitch, roll, yaw);
+    gameObj->box = temp;
+}

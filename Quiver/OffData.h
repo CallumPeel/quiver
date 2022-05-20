@@ -37,4 +37,6 @@ void findRadiusPerFace(OFFObj3d *fileCoords);
 
 void objNormalise(OFFObj3d *fileCoords);
 
+void rotateModel(OFFObj3d *obj, double pitch, double roll, double yaw);
+
 #endif // OFFDATA_H

@@ -25,5 +25,6 @@ void allocGObjectMem(GameObject *gObject);
 void freeGObjectMem(GameObject *gObject);
 BoundingBox getBoundingBox(OFFObj3d model);
 
-#endif // MODEL_H
+void rotateBoundingBox(GameObject* obj, double pitch, double roll, double yaw);
 
+#endif // MODEL_H
