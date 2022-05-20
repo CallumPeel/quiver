@@ -970,7 +970,7 @@
 	<freeglut.h>
 	"WorldView.h"
 
-1652865966 c:\repositories\quiver\quiver\worldview.h
+1652867840 c:\repositories\quiver\quiver\worldview.h
 	<freeglut.h>
 	"Objects.h"
 	"Collision.h"
@@ -985,18 +985,19 @@
 	"OffData.h"
 	<stdio.h>
 
-1652860059 c:\repositories\quiver\quiver\renderobject.h
+1652867840 c:\repositories\quiver\quiver\renderobject.h
 	"Model.h"
 	"Objects.h"
 
-1652862872 c:\repositories\quiver\quiver\model.h
+1653054696 c:\repositories\quiver\quiver\model.h
 	"OffData.h"
 	"ReadFile.h"
+	"VECTORS.h"
 
 1652588053 source:c:\repositories\quiver\quiver\math_ext.c
 	"MATH_EXT.h"
 
-1652864289 source:c:\repositories\quiver\quiver\model.c
+1653054683 source:c:\repositories\quiver\quiver\model.c
 	"Model.h"
 
 1652862523 source:c:\repositories\quiver\quiver\objects.c
@@ -1011,14 +1012,14 @@
 1651482528 source:c:\repositories\quiver\quiver\readfile.c
 	"ReadFile.h"
 
-1652862657 source:c:\repositories\quiver\quiver\renderobject.c
+1652867840 source:c:\repositories\quiver\quiver\renderobject.c
 	"RenderObject.h"
 
 1652588053 source:c:\repositories\quiver\quiver\vectors.c
 	"VECTORS.h"
 	<math.h>
 
-1652864631 source:c:\repositories\quiver\quiver\worldview.c
+1652867840 source:c:\repositories\quiver\quiver\worldview.c
 	"WorldView.h"
 	"CAMERA.h"
 
