@@ -3,13 +3,14 @@
 
 #include "OffData.h"
 #include "ReadFile.h"
+#include "VECTORS.h"
 
+// Change this to include point3s
 typedef struct BoundingBox {
-    GLfloat minX, maxX, minY, maxY, minZ, maxZ;
+    point3D a,b,c,d,e,f,g,h;
 }BoundingBox;
 
 typedef struct GameObject {
-    int numObjects;
     point3D *position;
     BoundingBox box;
     OFFObj3d* obj;
