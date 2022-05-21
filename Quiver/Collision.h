@@ -3,8 +3,9 @@
 
 #include "OffData.h"
 #include "ObjMath.h"
+#include "Model.h"
 
-int checkCollision(double objPos1[], double objPos2[], point3D pnt1, point3D pnt2);
-int collider(OFFObj3d *obj1, OFFObj3d *obj2, double objPos1[], double objPos2[]);
+int isCollidingForTwo(GameObject objA, GameObject* objB);
+int isColliding(GameObject arrow, GameObject** objectList, int numObjs);
 
 #endif // COLLISION_H

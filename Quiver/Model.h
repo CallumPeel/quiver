@@ -7,7 +7,7 @@
 
 // Change this to include point3s
 typedef struct BoundingBox {
-    point3D a,b,c,d,e,f,g,h;
+    GLfloat minX, maxX, minY, maxY, minZ, maxZ;
 }BoundingBox;
 
 typedef struct GameObject {
@@ -25,6 +25,8 @@ void allocGObjectMem(GameObject *gObject);
 void freeGObjectMem(GameObject *gObject);
 BoundingBox getBoundingBox(OFFObj3d model);
 
-void rotateBoundingBox(GameObject* obj, double pitch, double roll, double yaw);
+//void rotateBoundingBox(GameObject* obj, double pitch, double roll, double yaw);
+void rotateModel(GameObject* obj, double pitch, double roll, double yaw);
 
 #endif // MODEL_H
+
