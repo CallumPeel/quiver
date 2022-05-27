@@ -6,24 +6,14 @@
 
 //------------------------------------------------------------------------
 
-int dt;
-int fps = 80;
-GLboolean menu = GL_FALSE;
+int fps = 80; // frame rate
+int dt; // delta time
+int winx; // viewport width
+int winy; // viewport height
 
-int flag = 0;
-double angle = 90.0;
-double dirX = 0.0;
-double dirZ = 0.0;
 int thrown = 0;
-
-double wr = 1.0f; //window resizing ratio
-int winx;
-int winy;
-
-const GLdouble camPerspect[] = {
-    60.0, 1.0, //pov, aspect
-    0.1, 200   //near, far
-};
+GLboolean menu = GL_FALSE;
+float angle = 90.0f;
 
 Camera Cam;
 Object Arrow;
