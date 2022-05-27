@@ -535,7 +535,7 @@ void drawTree1() {
 }
 
 void drawTree2() {
-    int appleAmnt = 20;
+//    int appleAmnt = 20;
 
     glPushMatrix();
         glColor3ub(139,69,19);

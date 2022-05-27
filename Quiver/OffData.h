@@ -19,6 +19,7 @@ typedef struct OFFObj3d {
     Face *faceCoord;
     point3D *com;
     point3D *rad;
+    point3D *rot;
 } OFFObj3d;
 
 /** @brief Assign memory to the size of nVert, nFace, nEdge
@@ -36,7 +37,5 @@ double findRadius(const OFFObj3d *fileCoords, const point3D *c);
 void findRadiusPerFace(OFFObj3d *fileCoords);
 
 void objNormalise(OFFObj3d *fileCoords);
-
-void rotateModel(OFFObj3d *obj, double pitch, double roll, double yaw);
 
 #endif // OFFDATA_H

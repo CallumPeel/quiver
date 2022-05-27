@@ -33,7 +33,7 @@ FILE* getFile(const char *inFile) {
 
 /** @brief Stores data from the OFF file in a struct 'OFFObj3d'
  */
-void readOFFFile(OFFObj3d *fileCoords, const char *inFile) {
+void readOFFFile(OFFObj3d *offObject, const char *inFile) {
     FILE *offFile;
     int i = 0, j = 0;
     char inData[256];
@@ -41,8 +41,8 @@ void readOFFFile(OFFObj3d *fileCoords, const char *inFile) {
 
     offFile = getFile(inFile);
 
-    ReadInitFileData(offFile, fileCoords);
-    allocCoordMem(fileCoords);
+    ReadInitFileData(offFile, offObject);
+    allocCoordMem(offObject);
 
     while((fgets(inData, 256, offFile)) != NULL) {
         sscanf(inData, "%lf", &temp);
@@ -51,9 +51,9 @@ void readOFFFile(OFFObj3d *fileCoords, const char *inFile) {
             point3D newPoint;
             sscanf(inData, "%lf %lf %lf", &newPoint.x, &newPoint.y, &newPoint.z);
 
-            fileCoords->vertCoord[i].x = newPoint.x;
-            fileCoords->vertCoord[i].y = newPoint.y;
-            fileCoords->vertCoord[i].z = newPoint.z;
+            offObject->vertCoord[i].x = newPoint.x;
+            offObject->vertCoord[i].y = newPoint.y;
+            offObject->vertCoord[i].z = newPoint.z;
 
             ++i;
         } else if(temp == 3) {
@@ -61,13 +61,17 @@ void readOFFFile(OFFObj3d *fileCoords, const char *inFile) {
 
             sscanf(inData, "%lf %d %d %d", &temp, &newPoint.x, &newPoint.y, &newPoint.z);
 
-            fileCoords->faceCoord[j].x = newPoint.x;
-            fileCoords->faceCoord[j].y = newPoint.y;
-            fileCoords->faceCoord[j].z = newPoint.z;
+            offObject->faceCoord[j].x = newPoint.x;
+            offObject->faceCoord[j].y = newPoint.y;
+            offObject->faceCoord[j].z = newPoint.z;
 
             ++j;
         }
     }
+
+    offObject->rot->x = 0;
+    offObject->rot->y = 0;
+    offObject->rot->z = 0;
 
     fclose(offFile);
 }

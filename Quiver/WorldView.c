@@ -54,6 +54,8 @@ void ShowMenu(void);
 void SetPerspective(void);
 void GetDeltaTime(int * dt, int * old_t);
 
+int numOfModels;
+GameObject* models[2];
 
 OFFObj3d* arrow;
 OFFObj3d* bone;
@@ -63,14 +65,17 @@ GameObject boneObj;
 //------------------------------------------------------------------------
 
 void initializeModels() {
+    numOfModels = 2;
+    *models = (GameObject*) malloc(sizeof(GameObject) * numOfModels);
 
     arrow = loadOFFObj("arrow.off");
     allocGObjectMem(&arrowObj);
     arrowObj.position->x = 0;
     arrowObj.position->y = 0;
-    arrowObj.position->z = -6;
+    arrowObj.position->z = -3;
     arrowObj.obj = arrow;
     arrowObj.box = getBoundingBox(*arrow);
+    models[0] = &arrowObj;
 
     bone = loadOFFObj("bone.off");
     allocGObjectMem(&boneObj);
@@ -79,7 +84,7 @@ void initializeModels() {
     boneObj.position->z = -2;
     boneObj.obj = bone;
     boneObj.box = getBoundingBox(*bone);
-
+    models[1] = &boneObj;
 }
 
 void InitDefaults() {
@@ -293,8 +298,10 @@ void KeyDown(unsigned char key, int x, int y) {
     switch(key){
         case 'q': exit(0); break;
         case 'r':
-            rotateModel(arrow, 0.1, 0.1, 0);
-            rotateBoundingBox(&arrowObj, 0.1, 0.1, 0);
+            rotateModel(&arrowObj, 0.1, 0.1, 0);
+            break;
+        case 'l':
+            arrowObj.position->z += 0.1;
             break;
         case 'm': menu = (menu) ? GL_FALSE : GL_TRUE;
         default: break;
@@ -319,6 +326,12 @@ void GetDeltaTime(int * dt, int * old_t) {
 void Clock(int t) {
     GetDeltaTime(&dt, &t);
     MoveCam(&cam, &dt);
+    if (isColliding(arrowObj, models, numOfModels)) {
+        printf("Colliding\n");
+    }
+    else {
+        printf("\n");
+    };
     glutPostRedisplay();
     glutTimerFunc(1000/fps, Clock, t);
 }
