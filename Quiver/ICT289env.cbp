@@ -62,49 +62,37 @@
 			<Add library="openGL32" />
 			<Add directory="lib" />
 		</Linker>
-		<Unit filename="BoundingBox.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="BoundingBox.h" />
 		<Unit filename="CAMERA.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="CAMERA.h" />
-		<Unit filename="Collision.c">
+		<Unit filename="Geometry3D.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Collision.h" />
+		<Unit filename="Geometry3D.h" />
 		<Unit filename="MATH_EXT.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="MATH_EXT.h" />
+		<Unit filename="MENU.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MENU.h" />
 		<Unit filename="Main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Model.c">
+		<Unit filename="OFF.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Model.h" />
-		<Unit filename="ObjMath.c">
+		<Unit filename="OFF.h" />
+		<Unit filename="PHYSICS.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="ObjMath.h" />
-		<Unit filename="Objects.c">
+		<Unit filename="PHYSICS.h" />
+		<Unit filename="SCENE.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Objects.h" />
-		<Unit filename="OffData.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="OffData.h" />
-		<Unit filename="ReadFile.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ReadFile.h" />
-		<Unit filename="RenderObject.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="RenderObject.h" />
+		<Unit filename="SCENE.h" />
 		<Unit filename="VECTORS.c">
 			<Option compilerVar="CC" />
 		</Unit>

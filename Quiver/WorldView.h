@@ -4,17 +4,12 @@
 //------------------------------------------------------------------------
 
 #include <freeglut.h>
-#include "Objects.h"
-#include "Collision.h"
-#include "ObjMath.h"
-#include "RenderObject.h"
 
 //------------------------------------------------------------------------
 
 //  *** NEEDS COMMENTING ***
 
-void initializeModels();
-void InitDefaults();
+void Init();
 void Display(void);
 void Reshape(int w, int h);
 void KeyDown(unsigned char key, int x, int y);

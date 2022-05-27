@@ -30,7 +30,7 @@ Vec3 Mul(Vec3 const * u, double const fac) {
     };
 }
 Vec3 Div(Vec3 const * u, double const fac) {
-    return Mul( u, 1.0/fac );
+    return Mul( u, 1.0f/fac );
 }
 
 double Dot(Vec3 const * u, Vec3 const * v) {

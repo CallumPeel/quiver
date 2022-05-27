@@ -1,8 +1,7 @@
-#include "OffData.h"
-#include "ReadFile.h"
-
 #ifndef OBJECTS_H
 #define OBJECTS_H
+
+#include <freeglut.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
