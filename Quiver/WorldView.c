@@ -1,96 +1,61 @@
 #include "WorldView.h"
 #include "CAMERA.h"
+#include "PHYSICS.h"
+#include "OFF.h"
+#include "SCENE.h"
 
 //------------------------------------------------------------------------
 
-Camera cam = {
-    {0, 0, 0},  // cam position
-    {0, 0, -1.0}, // cam front
-    {0, 1.0, 0},  // cam up
-    0.0,                // cam yaw
-    0.0                 // cam pitch
-};
+int fps = 80; // frame rate
+int dt; // delta time
+int winx; // viewport width
+int winy; // viewport height
 
-const GLdouble camPerspect[] = {
-    60.0, 1.0, //pov, aspect
-    0.1, 200   //near, far
-};
-
-double targetWithLegs[3][3] = {
-    {1.5f, 0.0f, -30.0f}, //object 1
-    {-3.0f, 0.0f, 0.0f}, //object 2
-    {-3.0f, 0.0f, 0.0f} //object 3
-};
-
-//------------------------------------------------------------------------
-
-int fps = 60;
-
-int dt;
-
-double wr = 1.0f; //window resizing ratio
-int winx;
-int winy;
-
+int thrown = 0;
 GLboolean menu = GL_FALSE;
+float angle = 90.0f;
 
-void *font = GLUT_BITMAP_TIMES_ROMAN_24;
-
-float sunAngle = 0.0f;
-
-int flag = 0;
-double angle = 90.0;
-double dirX = 0.0;
-double dirZ = 0.0;
+Camera Cam;
+Object Arrow;
+ArrPlane P;
+Off ArrowModel;
 
 //------------------------------------------------------------------------
 
-void MoveSun(void);
-void SetLight(void);
-void Set3DOrtho(void);
-void UnSet3DOrtho(void);
-void RenderBitmapString(float x, float y, void *font, char *string);
-void ShowMenu(void);
-void SetPerspective(void);
 void GetDeltaTime(int * dt, int * old_t);
-
-int numOfModels;
-GameObject* models[2];
-
-OFFObj3d* arrow;
-OFFObj3d* bone;
-GameObject arrowObj;
-GameObject boneObj;
+void GetPlanes(ArrPlane* P);
+void SetLight(void);
+void WindArrow(Camera const * Cam);
+void ActivateArrow();
 
 //------------------------------------------------------------------------
 
-void initializeModels() {
-    numOfModels = 2;
-    *models = (GameObject*) malloc(sizeof(GameObject) * numOfModels);
+//void initializeModels() {
+//    numOfModels = 2;
+//    *models = (GameObject*) malloc(sizeof(GameObject) * numOfModels);
+//
+//    arrow = loadOFFObj("arrow.off");
+//    allocGObjectMem(&arrowObj);
+//    arrowObj.position->x = 0;
+//    arrowObj.position->y = 0;
+//    arrowObj.position->z = -3;
+//    arrowObj.obj = arrow;
+//    arrowObj.box = getBoundingBox(*arrow);
+//    models[0] = &arrowObj;
+//
+//    bone = loadOFFObj("bone.off");
+//    allocGObjectMem(&boneObj);
+//    boneObj.position->x = 0;
+//    boneObj.position->y = 0;
+//    boneObj.position->z = -2;
+//    boneObj.obj = bone;
+//    boneObj.box = getBoundingBox(*bone);
+//    models[1] = &boneObj;
+//}
 
-    arrow = loadOFFObj("arrow.off");
-    allocGObjectMem(&arrowObj);
-    arrowObj.position->x = 0;
-    arrowObj.position->y = 0;
-    arrowObj.position->z = -3;
-    arrowObj.obj = arrow;
-    arrowObj.box = getBoundingBox(*arrow);
-    models[0] = &arrowObj;
 
-    bone = loadOFFObj("bone.off");
-    allocGObjectMem(&boneObj);
-    boneObj.position->x = 0;
-    boneObj.position->y = 0;
-    boneObj.position->z = -2;
-    boneObj.obj = bone;
-    boneObj.box = getBoundingBox(*bone);
-    models[1] = &boneObj;
-}
 
-void InitDefaults() {
-
-    initializeModels();
-
+void Init() {
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
@@ -101,17 +66,83 @@ void InitDefaults() {
     glColor3f(1.0, 0.0, 0.0);
     glLineWidth(1.0);
 
-    SetPerspective();
-
-    glMatrixMode(GL_MODELVIEW);
-
-    CamLookSpeed = 0.125;
-    CamMoveSpeed = 0.0025;
+    InitCam(&Cam, 0, 0, 0);
+    InitObject(&Arrow, 0.5f, 0);
+    GetPlanes(&P);
+    ReadOffFile(&ArrowModel, "arrow.off");
 }
 
-void MoveSun() {
-    sunAngle += 0.36f * dt/1000.0f;
-    if(sunAngle >= 360) sunAngle = 0;
+void Display(void) {
+    glMatrixMode(GL_MODELVIEW);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+    //SetLight();
+    LookAt(&Cam);
+    WindArrow(&Cam);
+    DrawScene();
+    if(thrown)
+        DrawArrow(&ArrowModel, &Arrow.position, &Arrow.rotation);
+
+    glutSwapBuffers();
+}
+
+void Reshape(int w, int h) {
+    winx = w;
+    winy = h;
+
+    if (!h) h = 1;
+    double ratio = w * 1.0f / h;
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glViewport(0, 0, w, h);
+    gluPerspective(45.0, ratio, 0.01, 100);
+}
+
+void KeyDown(unsigned char key, int x, int y) {
+    switch(key){
+        case 'q': exit(0); break;
+        case ' ': ActivateArrow(); break;
+        default: break;
+    }
+
+    MoveCamKeyDown(&key);
+}
+
+void KeyUp(unsigned char key, int x, int y) {
+    MoveCamKeyUp(&key);
+}
+
+void Mouse(int x, int y) {
+    if(!menu)   // do not orient camera or capture mouse while menu is open
+        LookCam(&x, &y, &winx, &winy, &Cam);
+}
+
+void Clock(int t) {
+    GetDeltaTime(&dt, &t);
+
+    MoveCam(&Cam, &dt);
+    AddSunAngle(10.0f * dt / 1000);
+    UpdatePhysics(&Arrow, &P, dt);
+
+    glutPostRedisplay();
+    glutTimerFunc(1000/fps, Clock, t);
+}
+
+void GetDeltaTime(int * dt, int * old_t) {
+    *dt = glutGet(GLUT_ELAPSED_TIME) - *old_t;
+    *old_t += *dt;
+}
+
+void GetPlanes(ArrPlane* P)
+{
+    Plane ground = {(Vec3){0, 1.0, 0}, -1.0f};
+
+    P->size = 1;
+    P->planes = (Plane*)malloc(P->size * sizeof(Plane));
+
+    P->planes[0] = ground;
 }
 
 void SetLight(void){
@@ -141,197 +172,23 @@ void SetLight(void){
         glEnable (GL_LIGHT0); // as in flip on the light switch
 }
 
-void SetPerspective(void) {
-    gluPerspective(camPerspect[0], wr,
-                    camPerspect[2], camPerspect[3]);
-}
-
-void Set3DOrtho() {
-    // switch to projection mode
-    glMatrixMode(GL_PROJECTION);
-
-    //save projection mode settings
-    glPushMatrix();
-
-    // reset matrix
-    glLoadIdentity();
-
-    SetPerspective();
-
-    // switch back to modelview mode
-    glMatrixMode(GL_MODELVIEW);
-}
-
-void UnSet3DOrtho(void) {
-    // switch to projection mode
-    glMatrixMode(GL_PROJECTION);
-
-    SetPerspective();
-
-    glPopMatrix();
-
-    // switch back to modelview mode
-    glMatrixMode(GL_MODELVIEW);
-}
-
-void set2DOrthoProjection(void) {
-    // switch to projection mode
-    glMatrixMode(GL_PROJECTION);
-
-    //save projection mode settings
-    glPushMatrix();
-
-    // reset matrix
-    glLoadIdentity();
-
-    // load a 2d orthographic projection
-    gluOrtho2D(0, winx, winy, 0);
-
-    // switch back to modelview mode
-    glMatrixMode(GL_MODELVIEW);
-}
-
-void unSet2DOrthoProjection(void) {
-    // switch to projection mode
-    glMatrixMode(GL_PROJECTION);
-
-    SetPerspective();
-
-    glPopMatrix();
-
-    // switch back to modelview mode
-    glMatrixMode(GL_MODELVIEW);
-}
-
-void RenderBitmapString(float x, float y, void *font, char *string) {
-    char *c;
-    glRasterPos2d(x, y);
-
-    for (c=string; *c != '\0'; c++) {
-        if(*c == '\n') {
-            y+=30;
-            glRasterPos2d(x-5, y);
-            glutBitmapCharacter(font, *c);
-        } else {
-            glutBitmapCharacter(font, *c);
-        }
-    }
-}
-
-void ShowMenu(void) {
-    if(menu) {
-        set2DOrthoProjection();
-
-        glLoadIdentity();
-        glColor3ub(128, 128, 128);
-        RenderBitmapString(20, 30, font, "menu is here\nbye\nhello\nglut");
-        drawMenu2D(winx, winy);
-
-        unSet2DOrthoProjection();
-    }
-}
-
-void WindArrow(Camera const * cam) {
+void WindArrow(Camera const * Cam) {
     if(!menu) { // do not render if menu is open
         glPushMatrix();
-            glTranslatef(cam->Pos.x, cam->Pos.y, cam->Pos.z); // move with cam
-            glRotatef(-cam->yaw, 0, 1.0, 0);                // move with -yaw
-            glRotatef(cam->pitch, 1.0, 0, 0);               // move with pitch
-            glTranslatef(-0.1, 0.05, -0.2);                // move to corner
-            glRotatef(cam->yaw+angle, 0, 1.0, 0);           // rotate model
-            glScalef(0.05, 0.05, 0.05);                    // scale model
-            drawWindArrow();                               // draw model
+            glTranslatef(Cam->Pos.x, Cam->Pos.y, Cam->Pos.z);   // align with cam pos
+            glRotatef(-Cam->yaw, 0, 1.0, 0);                    // align with cam -yaw
+            glRotatef(Cam->pitch, 1.0, 0, 0);                   // align with cam pitch
+            glScalef(0.01, 0.01, 0.01);                         // scale arrow
+            glTranslatef(-2.2f, 1.5f, -6.0);                    // position on screen
+            glRotatef(Cam->yaw+angle, 0, 1.0, 0);               // rotate arrow
+            drawWindArrow();                                    // draw model
         glPopMatrix();
     }
 }
 
-void Display(void) {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity(); /* reset transformations */
-
-    LookAt(&cam);
-
-    drawOFFObj(boneObj);
-    drawBoundingBox(boneObj);
-
-    drawOFFObj(arrowObj);
-    drawBoundingBox(arrowObj);
-
-    WindArrow(&cam);
-
-    SetLight();
-
-    renderGround();
-    renderSun(sunAngle);
-    renderTrees();
-
-    renderFences();
-    renderTargets(targetWithLegs);
-    renderHouses();
-
-    ShowMenu();
-    MoveSun();
-
-    glutSwapBuffers();
-}
-
-void Reshape(int w, int h) {
-    if(h == 0)
-        h = 1;
-
-    winx = w;
-    winy = h;
-
-    wr = (GLfloat) w / h;
-
-    //Change to Projection matrix
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    glViewport(0, 0, w, h); /* set the viewport */
-    SetPerspective(); /* set the camera perspective */
-
-    glMatrixMode(GL_MODELVIEW);
-}
-
-void KeyDown(unsigned char key, int x, int y) {
-    switch(key){
-        case 'q': exit(0); break;
-        case 'r':
-            rotateModel(&arrowObj, 0.1, 0.1, 0);
-            break;
-        case 'l':
-            arrowObj.position->z += 0.1;
-            break;
-        case 'm': menu = (menu) ? GL_FALSE : GL_TRUE;
-        default: break;
-    }
-
-    MoveCamKeyDown(&key);
-}
-
-void KeyUp(unsigned char key, int x, int y) {
-    MoveCamKeyUp(&key);
-}
-
-void Mouse(int x, int y) {
-    LookCam(&x, &y, &winx, &winy, &cam);
-}
-
-void GetDeltaTime(int * dt, int * old_t) {
-    *dt = glutGet(GLUT_ELAPSED_TIME) - *old_t;
-    *old_t += *dt;
-}
-
-void Clock(int t) {
-    GetDeltaTime(&dt, &t);
-    MoveCam(&cam, &dt);
-    if (isColliding(arrowObj, models, numOfModels)) {
-        printf("Colliding\n");
-    }
-    else {
-        printf("\n");
-    };
-    glutPostRedisplay();
-    glutTimerFunc(1000/fps, Clock, t);
+void ActivateArrow()
+{
+    thrown = 1;
+    Vec3 pos = Add(&Cam.Pos, &Cam.Front);
+    ShootArrow(&Arrow, &pos, &Cam.Front, 450.0);
 }

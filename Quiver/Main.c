@@ -1,12 +1,11 @@
-#include <stdio.h>
 #include <freeglut.h>
 #include "WorldView.h"
 
 //------------------------------------------------------------------------
 
-#define WIN_WIDTH 1020 // set the window width here
-#define WIN_HEIGHT 768 // set the window height here
-#define START_DELAY 1000 // delays the start of the animation by msecs
+const int WIN_WIDTH = 1600; // viewport width
+const int WIN_HEIGHT = 1200; // viewport height
+const unsigned DELAY = 500; // start delay (milliseconds)
 
 //------------------------------------------------------------------------
 
@@ -29,14 +28,13 @@ int main(int argc, char **argv) {
     glutKeyboardUpFunc(KeyUp);
 
         /// mouse input
-    glutWarpPointer(WIN_WIDTH/2, WIN_HEIGHT/2); // move mouse to center of viewport
     glutPassiveMotionFunc(Mouse);
 
         /// initialize default values
-    InitDefaults();
+    Init();
 
         /// start the program clock
-    glutTimerFunc(START_DELAY, Clock, START_DELAY);
+    glutTimerFunc(DELAY, Clock, DELAY);
 
         /// start GLUT main loop
     glutMainLoop();

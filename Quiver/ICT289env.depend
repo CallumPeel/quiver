@@ -819,11 +819,11 @@
 
 1652501688 c:\exclusions\gh repo\quiver\quiver\boundingbox.h
 
-1652624865 source:c:\exclusions\gh repo\quiver\quiver\camera.c
+1653648017 source:c:\exclusions\gh repo\quiver\quiver\camera.c
 	"CAMERA.h"
 	"MATH_EXT.h"
 
-1652624865 c:\exclusions\gh repo\quiver\quiver\camera.h
+1653648017 c:\exclusions\gh repo\quiver\quiver\camera.h
 	<freeglut.h>
 	"VECTORS.h"
 
@@ -845,14 +845,15 @@
 	<math.h>
 	<float.h>
 
-1652501688 source:c:\exclusions\gh repo\quiver\quiver\collision.c
+1653641419 source:c:\exclusions\gh repo\quiver\quiver\collision.c
 	"Collision.h"
 
-1652525029 c:\exclusions\gh repo\quiver\quiver\collision.h
+1653641419 c:\exclusions\gh repo\quiver\quiver\collision.h
 	"OffData.h"
 	"ObjMath.h"
+	"Model.h"
 
-1652624865 c:\exclusions\gh repo\quiver\quiver\offdata.h
+1653641419 c:\exclusions\gh repo\quiver\quiver\offdata.h
 	<freeglut.h>
 	"ObjMath.h"
 
@@ -861,62 +862,59 @@
 	<stdlib.h>
 	<stdio.h>
 
-1652624865 source:c:\exclusions\gh repo\quiver\quiver\main.c
-	<stdio.h>
+1653665007 source:c:\exclusions\gh repo\quiver\quiver\main.c
 	<freeglut.h>
 	"WorldView.h"
 
-1652867708 c:\exclusions\gh repo\quiver\quiver\worldview.h
+1653664818 c:\exclusions\gh repo\quiver\quiver\worldview.h
 	<freeglut.h>
-	"Objects.h"
-	"Collision.h"
-	"ObjMath.h"
-	"RenderObject.h"
 
-1652525029 c:\exclusions\gh repo\quiver\quiver\objects.h
-	"OffData.h"
-	"ReadFile.h"
+1653654550 c:\exclusions\gh repo\quiver\quiver\objects.h
+	<freeglut.h>
 
 1652501688 c:\exclusions\gh repo\quiver\quiver\readfile.h
 	"OffData.h"
 	<stdio.h>
 
-1652867708 c:\exclusions\gh repo\quiver\quiver\renderobject.h
-	"Model.h"
+1653654625 c:\exclusions\gh repo\quiver\quiver\renderobject.h
 	"Objects.h"
 
-1652867708 c:\exclusions\gh repo\quiver\quiver\model.h
+1653641419 c:\exclusions\gh repo\quiver\quiver\model.h
 	"OffData.h"
 	"ReadFile.h"
+	"VECTORS.h"
 
 1652624865 source:c:\exclusions\gh repo\quiver\quiver\math_ext.c
 	"MATH_EXT.h"
 
-1652867708 source:c:\exclusions\gh repo\quiver\quiver\model.c
+1653641419 source:c:\exclusions\gh repo\quiver\quiver\model.c
 	"Model.h"
 
-1652501688 source:c:\exclusions\gh repo\quiver\quiver\objects.c
+1653641419 source:c:\exclusions\gh repo\quiver\quiver\objects.c
 	"Objects.h"
 
 1652525029 source:c:\exclusions\gh repo\quiver\quiver\objmath.c
 	"ObjMath.h"
 
-1652501688 source:c:\exclusions\gh repo\quiver\quiver\offdata.c
+1653641419 source:c:\exclusions\gh repo\quiver\quiver\offdata.c
 	"OffData.h"
 
-1652501688 source:c:\exclusions\gh repo\quiver\quiver\readfile.c
+1653641419 source:c:\exclusions\gh repo\quiver\quiver\readfile.c
 	"ReadFile.h"
 
-1652867708 source:c:\exclusions\gh repo\quiver\quiver\renderobject.c
+1653652683 source:c:\exclusions\gh repo\quiver\quiver\renderobject.c
 	"RenderObject.h"
 
-1652624865 source:c:\exclusions\gh repo\quiver\quiver\vectors.c
+1653653882 source:c:\exclusions\gh repo\quiver\quiver\vectors.c
 	"VECTORS.h"
 	<math.h>
 
-1652867708 source:c:\exclusions\gh repo\quiver\quiver\worldview.c
+1653671299 source:c:\exclusions\gh repo\quiver\quiver\worldview.c
 	"WorldView.h"
 	"CAMERA.h"
+	"PHYSICS.h"
+	"OFF.h"
+	"SCENE.h"
 
 1651485857 source:c:\repositories\quiver\quiver\boundingbox.c
 	"BoundingBox.h"
@@ -1023,4 +1021,43 @@
 1653132169 source:c:\repositories\quiver\quiver\worldview.c
 	"WorldView.h"
 	"CAMERA.h"
+
+1653270830 source:c:\exclusions\gh repo\quiver\quiver\geometry3d.c
+	"Geometry3D.h"
+	"MATH_EXT.h"
+
+1653270830 c:\exclusions\gh repo\quiver\quiver\geometry3d.h
+	"VECTORS.h"
+	<stdbool.h>
+
+1653651892 source:c:\exclusions\gh repo\quiver\quiver\physics.c
+	"PHYSICS.h"
+	"MATH_EXT.h"
+
+1653650957 c:\exclusions\gh repo\quiver\quiver\physics.h
+	"Geometry3D.h"
+
+1653664055 source:c:\exclusions\gh repo\quiver\quiver\off.c
+	"OFF.h"
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1653664003 c:\exclusions\gh repo\quiver\quiver\off.h
+	"VECTORS.h"
+
+1653668625 c:\exclusions\gh repo\quiver\quiver\scene.h
+	"OFF.h"
+	"VECTORS.h"
+
+1653668625 source:c:\exclusions\gh repo\quiver\quiver\scene.c
+	"SCENE.h"
+	<freeglut.h>
+	<math.h>
+
+1653669099 source:c:\exclusions\gh repo\quiver\quiver\menu.c
+	"MENU.h"
+	<freeglut.h>
+
+1653668659 c:\exclusions\gh repo\quiver\quiver\menu.h
 

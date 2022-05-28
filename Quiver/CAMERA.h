@@ -33,12 +33,6 @@ typedef struct Camera{
     float pitch;    // camera pitch
 } Camera;
 
-    /// the camera look sensitivity
-float CamLookSpeed;
-
-    /// the camera move speed
-float CamMoveSpeed;
-
 //------------------------------------------------------------------------
 
     /// @brief      allows use of Camera with gluLookAt
@@ -86,6 +80,12 @@ void MoveCam(Camera * cam, int const * dt);
 
 void LookCam(int const * x, int const * y, int const * winx, int const * winy,
              Camera * cam);
+
+void InitCam(Camera* C, const Vec3* pos, const Vec3* front, const Vec3* up);
+
+void SetCamLookSpeed(float speed);
+
+void SetCamMoveSpeed(float speed);
 
 //------------------------------------------------------------------------
 
