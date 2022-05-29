@@ -105,9 +105,9 @@ AABB FromMinMax(Vec3 const * min, Vec3 const * max)
     AABB aabb;
 
     aabb.position = Add(min, max);
-    aabb.position = Mul(&aabb.position, 0.5f);
+    aabb.position = Div(&aabb.position, 2.0f);
     aabb.size = Sub(max, min);
-    aabb.size = Mul(&aabb.size, 0.5f);
+    aabb.size = Div(&aabb.size, 2.0f);
 
     return aabb;
 }

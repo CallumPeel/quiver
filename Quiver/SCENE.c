@@ -1,6 +1,7 @@
 #include "SCENE.h"
 #include <freeglut.h>
 #include <math.h>
+#include <stdio.h>
 
 //------------------------------------------------------------------------
 
@@ -8,6 +9,30 @@ typedef GLfloat point3[3];
 float _sunAngle = 0.0f;
 
 //------------------------------------------------------------------------
+
+void LoadModels(Off** ListOff, const char* filename)
+{
+    char buff[20];
+    unsigned count = 1;
+    FILE* listFilePtr = fopen(filename, "r");
+
+    while(fgets(buff, 20, listFilePtr)) {
+        if (buff[strlen(buff)-1] == '\n')
+            buff[strlen(buff)-1] = '\0';
+        FILE* offFilePtr = fopen(buff, "r");
+
+        *ListOff = realloc(*ListOff, sizeof(Off) * count);
+        ReadOffFile(&(*ListOff)[count-1], buff);
+        NormOff(&(*ListOff)[count-1]);
+
+        fclose(offFilePtr);
+
+        buff[0] = '\0';
+        ++count;
+    }
+
+    fclose(listFilePtr);
+}
 
 void DrawArrow(const Off* off, const Vec3* pos, const Vec3* rot)
 {
@@ -18,7 +43,7 @@ void DrawArrow(const Off* off, const Vec3* pos, const Vec3* rot)
                      pos->z);
         glRotatef(rot->x, 0, 1.0f, 0);      // yaw
         glRotatef(rot->y, 1.0f, 0, 0);      // pitch
-        glTranslatef(0, 0, -0.3);           // moves center to just below tip
+        glTranslatef(0, 0, 0.75);           // moves center to just below tip
         DrawOff(off);
     glPopMatrix();
 }

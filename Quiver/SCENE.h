@@ -8,8 +8,12 @@
 
 //------------------------------------------------------------------------
 
+// uses double inferencing. put the ListOff argument in as &listoff, where listoff is -> Off* listoff
+void LoadModels(Off** ListOff, const char* filename);
+
 void DrawArrow(const Off* off, const Vec3* pos, const Vec3* rot);
 void DrawOff(const Off* off);
+
 void DrawScene();
 
 void AddSunAngle(float angle);

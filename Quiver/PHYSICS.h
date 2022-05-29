@@ -4,6 +4,7 @@
 //------------------------------------------------------------------------
 
 #include "Geometry3D.h"
+#include "OFF.h"
 
 //------------------------------------------------------------------------
 
@@ -16,26 +17,23 @@ typedef struct Object {
     unsigned isStatic;
 } Object;
 
-typedef struct ArrPlane {
+typedef struct ListAABB {
     unsigned size;
-    Plane* planes;
-} ArrPlane;
-
-typedef struct ArrAABB {
-    unsigned size;
-    AABB* aabbs;
-} ArrAABB;
+    AABB* arr;
+} ListAABB;
 
 //------------------------------------------------------------------------
 
 void SetPassiveForce(const Vec3* F);
 
-void UpdatePhysics(Object* arrow, ArrPlane* planes, float dt);
+void UpdatePhysics(Object* arrow, const Plane* Ground, const ListAABB* listAABB, float dt);
 
 void ShootArrow(Object* arrow, const Vec3* pos, const Vec3* dir, float force);
 
 void InitObject(Object* O, float mass, unsigned isStatic);
 
-//------------------------------------------------------------------------
+void InitListAABB(ListAABB* listaabb, const unsigned size);
+
+AABB GetOffAABB(const Off* off);
 
 #endif // PHYSICS_H
