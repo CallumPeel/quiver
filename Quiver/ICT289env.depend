@@ -819,11 +819,11 @@
 
 1652501688 c:\exclusions\gh repo\quiver\quiver\boundingbox.h
 
-1653648017 source:c:\exclusions\gh repo\quiver\quiver\camera.c
+1653709063 source:c:\exclusions\gh repo\quiver\quiver\camera.c
 	"CAMERA.h"
 	"MATH_EXT.h"
 
-1653648017 c:\exclusions\gh repo\quiver\quiver\camera.h
+1653709063 c:\exclusions\gh repo\quiver\quiver\camera.h
 	<freeglut.h>
 	"VECTORS.h"
 
@@ -862,11 +862,11 @@
 	<stdlib.h>
 	<stdio.h>
 
-1653665007 source:c:\exclusions\gh repo\quiver\quiver\main.c
+1653709063 source:c:\exclusions\gh repo\quiver\quiver\main.c
 	<freeglut.h>
 	"WorldView.h"
 
-1653664818 c:\exclusions\gh repo\quiver\quiver\worldview.h
+1653709063 c:\exclusions\gh repo\quiver\quiver\worldview.h
 	<freeglut.h>
 
 1653654550 c:\exclusions\gh repo\quiver\quiver\objects.h
@@ -905,11 +905,11 @@
 1653652683 source:c:\exclusions\gh repo\quiver\quiver\renderobject.c
 	"RenderObject.h"
 
-1653653882 source:c:\exclusions\gh repo\quiver\quiver\vectors.c
+1653709063 source:c:\exclusions\gh repo\quiver\quiver\vectors.c
 	"VECTORS.h"
 	<math.h>
 
-1653671299 source:c:\exclusions\gh repo\quiver\quiver\worldview.c
+1653987278 source:c:\exclusions\gh repo\quiver\quiver\worldview.c
 	"WorldView.h"
 	"CAMERA.h"
 	"PHYSICS.h"
@@ -1022,42 +1022,44 @@
 	"WorldView.h"
 	"CAMERA.h"
 
-1653270830 source:c:\exclusions\gh repo\quiver\quiver\geometry3d.c
+1653716084 source:c:\exclusions\gh repo\quiver\quiver\geometry3d.c
 	"Geometry3D.h"
 	"MATH_EXT.h"
 
-1653270830 c:\exclusions\gh repo\quiver\quiver\geometry3d.h
+1653709063 c:\exclusions\gh repo\quiver\quiver\geometry3d.h
 	"VECTORS.h"
 	<stdbool.h>
 
-1653651892 source:c:\exclusions\gh repo\quiver\quiver\physics.c
+1653984175 source:c:\exclusions\gh repo\quiver\quiver\physics.c
 	"PHYSICS.h"
 	"MATH_EXT.h"
 
-1653650957 c:\exclusions\gh repo\quiver\quiver\physics.h
+1653984157 c:\exclusions\gh repo\quiver\quiver\physics.h
 	"Geometry3D.h"
+	"OFF.h"
 
-1653664055 source:c:\exclusions\gh repo\quiver\quiver\off.c
+1653709063 source:c:\exclusions\gh repo\quiver\quiver\off.c
 	"OFF.h"
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 
-1653664003 c:\exclusions\gh repo\quiver\quiver\off.h
+1653709063 c:\exclusions\gh repo\quiver\quiver\off.h
 	"VECTORS.h"
 
-1653668625 c:\exclusions\gh repo\quiver\quiver\scene.h
+1653987118 c:\exclusions\gh repo\quiver\quiver\scene.h
 	"OFF.h"
-	"VECTORS.h"
+	"PHYSICS.h"
 
-1653668625 source:c:\exclusions\gh repo\quiver\quiver\scene.c
+1653987486 source:c:\exclusions\gh repo\quiver\quiver\scene.c
 	"SCENE.h"
 	<freeglut.h>
 	<math.h>
+	<stdio.h>
 
-1653669099 source:c:\exclusions\gh repo\quiver\quiver\menu.c
+1653709063 source:c:\exclusions\gh repo\quiver\quiver\menu.c
 	"MENU.h"
 	<freeglut.h>
 
-1653668659 c:\exclusions\gh repo\quiver\quiver\menu.h
+1653709063 c:\exclusions\gh repo\quiver\quiver\menu.h
 

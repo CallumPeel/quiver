@@ -16,44 +16,23 @@ GLboolean menu = GL_FALSE;
 float angle = 90.0f;
 
 Camera Cam;
-Object Arrow;
-ArrPlane P;
-Off ArrowModel;
+
+Off* offList; // array of models (OFF): 1 = arrow, 2 = bone
+
+Object arrowObj;
+Model arrowMod;
+ListAABB listaabb;
+
+Plane Ground = {(Vec3){0, 1.0, 0}, -1.0f};
 
 //------------------------------------------------------------------------
 
 void GetDeltaTime(int * dt, int * old_t);
-void GetPlanes(ArrPlane* P);
 void SetLight(void);
 void WindArrow(Camera const * Cam);
 void ActivateArrow();
 
 //------------------------------------------------------------------------
-
-//void initializeModels() {
-//    numOfModels = 2;
-//    *models = (GameObject*) malloc(sizeof(GameObject) * numOfModels);
-//
-//    arrow = loadOFFObj("arrow.off");
-//    allocGObjectMem(&arrowObj);
-//    arrowObj.position->x = 0;
-//    arrowObj.position->y = 0;
-//    arrowObj.position->z = -3;
-//    arrowObj.obj = arrow;
-//    arrowObj.box = getBoundingBox(*arrow);
-//    models[0] = &arrowObj;
-//
-//    bone = loadOFFObj("bone.off");
-//    allocGObjectMem(&boneObj);
-//    boneObj.position->x = 0;
-//    boneObj.position->y = 0;
-//    boneObj.position->z = -2;
-//    boneObj.obj = bone;
-//    boneObj.box = getBoundingBox(*bone);
-//    models[1] = &boneObj;
-//}
-
-
 
 void Init() {
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -67,10 +46,16 @@ void Init() {
     glLineWidth(1.0);
 
     InitCam(&Cam, 0, 0, 0);
-    InitObject(&Arrow, 0.5f, 0);
-    GetPlanes(&P);
-    ReadOffFile(&ArrowModel, "arrow.off");
+
+    Vec3 aScale = {0.5, 0.5, 0.5};
+    InitObject(&arrowObj, &aScale, 0.5f);
+
+    LoadOff(&offList, "OffList.txt");
+    arrowMod.off = &offList[0];
+    arrowMod.offset = (Vec3){0, 0, 0.55};
 }
+
+Vec3 aOffset = {0, 0, 0.6};
 
 void Display(void) {
     glMatrixMode(GL_MODELVIEW);
@@ -81,8 +66,9 @@ void Display(void) {
     LookAt(&Cam);
     WindArrow(&Cam);
     DrawScene();
+
     if(thrown)
-        DrawArrow(&ArrowModel, &Arrow.position, &Arrow.rotation);
+        DrawObject(&arrowMod, &arrowObj);
 
     glutSwapBuffers();
 }
@@ -124,7 +110,7 @@ void Clock(int t) {
 
     MoveCam(&Cam, &dt);
     AddSunAngle(10.0f * dt / 1000);
-    UpdatePhysics(&Arrow, &P, dt);
+    UpdatePhysics(&arrowObj, &Ground, &listaabb, dt);
 
     glutPostRedisplay();
     glutTimerFunc(1000/fps, Clock, t);
@@ -133,16 +119,6 @@ void Clock(int t) {
 void GetDeltaTime(int * dt, int * old_t) {
     *dt = glutGet(GLUT_ELAPSED_TIME) - *old_t;
     *old_t += *dt;
-}
-
-void GetPlanes(ArrPlane* P)
-{
-    Plane ground = {(Vec3){0, 1.0, 0}, -1.0f};
-
-    P->size = 1;
-    P->planes = (Plane*)malloc(P->size * sizeof(Plane));
-
-    P->planes[0] = ground;
 }
 
 void SetLight(void){
@@ -190,5 +166,5 @@ void ActivateArrow()
 {
     thrown = 1;
     Vec3 pos = Add(&Cam.Pos, &Cam.Front);
-    ShootArrow(&Arrow, &pos, &Cam.Front, 450.0);
+    ShootArrow(&arrowObj, &pos, &Cam.Front, 450.0);
 }

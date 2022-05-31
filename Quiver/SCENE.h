@@ -4,12 +4,21 @@
 //------------------------------------------------------------------------
 
 #include "OFF.h"
-#include "VECTORS.h"
+#include "PHYSICS.h"
 
 //------------------------------------------------------------------------
 
-void DrawArrow(const Off* off, const Vec3* pos, const Vec3* rot);
+typedef struct Model {
+    Off* off;
+    Vec3 offset;
+} Model;
+
+// uses double inferencing. put the ListOff argument in as &listoff, where listoff is -> Off* listoff
+void LoadOff(Off** offList, const char* filename);
+
+void DrawObject(const Model* model, const Object* obj);
 void DrawOff(const Off* off);
+
 void DrawScene();
 
 void AddSunAngle(float angle);

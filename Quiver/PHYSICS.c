@@ -15,12 +15,16 @@ void ColliderPointPlane(Object * O, Plane const * P);
 
 //------------------------------------------------------------------------
 
+Vec3 GetAABBSize(const Vec3* min, const Vec3* max);
+
+//------------------------------------------------------------------------
+
 void SetPassiveForce(const Vec3* F)
 {
     _passiveForce = *F;
 }
 
-void UpdatePhysics(Object* arrow, ArrPlane* P, float dt)
+void UpdatePhysics(Object* arrow, const Plane* ground, const ListAABB* listAABB, float dt)
 {
     dt /= 1000;
 
@@ -28,8 +32,10 @@ void UpdatePhysics(Object* arrow, ArrPlane* P, float dt)
 
     UpdateRotation(arrow);
 
-    for (unsigned i = 0; i < P->size; ++i)
-        ColliderPointPlane(arrow, &P->planes[i]);
+//    for (unsigned i = 0; i < listAABB->size; ++i)
+//        ColliderPointAABB(arrow, &listAABB->arr[i]);
+
+    ColliderPointPlane(arrow, ground);
 }
 
 void step(Object* obj, float dt)
@@ -79,7 +85,7 @@ void ShootArrow(Object* arrow, const Vec3* pos, const Vec3* dir, float force)
     arrow->isStatic = 0;
 }
 
-void InitObject(Object* O, float mass, unsigned isStatic)
+void InitObject(Object* O, const Vec3* scale, float mass)
 {
     Vec3 zero = {0, 0, 0};
 
@@ -87,6 +93,49 @@ void InitObject(Object* O, float mass, unsigned isStatic)
     O->velocity = zero;
     O->force = zero;
     O->rotation = zero;
+    O->scale = *scale;
     O->mass = mass;
-    O->isStatic = isStatic;
+    O->isStatic = 1;
+
+}
+
+void InitListAABB(ListAABB* listaabb, const unsigned size)
+{
+    listaabb->size = size;
+    listaabb->arr = malloc(sizeof(AABB) * size);
+}
+
+AABB GetOffAABB(const Off* off)
+{
+    Vec3 zero = (Vec3){0.0, 0.0, 0.0};
+    Vec3 min, max;
+    min = max = zero;
+
+    for (int i = 0; i < off->nverts; i++) {
+        if (off->verts[i].x < min.x) min.x = off->verts[i].x;
+        else
+        if (off->verts[i].x > max.x) max.x = off->verts[i].x;
+
+        if (off->verts[i].y < min.y) min.y = off->verts[i].y;
+        else
+        if (off->verts[i].y > max.y) max.y = off->verts[i].y;
+
+        if (off->verts[i].z < min.z) min.z = off->verts[i].z;
+        else
+        if (off->verts[i].z > max.z) max.z = off->verts[i].z;
+    }
+
+    Vec3 size = GetAABBSize(&min, &max);
+
+    return (AABB){zero, size};
+}
+
+Vec3 GetAABBSize(const Vec3* min, const Vec3* max)
+{
+    Vec3 size;
+
+    size = Sub(max, min);
+    size = Div(&size, 2.0f);
+
+    return size;
 }
