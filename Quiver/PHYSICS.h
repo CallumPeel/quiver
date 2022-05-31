@@ -31,10 +31,10 @@ void UpdatePhysics(Object* arrow, const Plane* Ground, const ListAABB* listAABB,
 
 void ShootArrow(Object* arrow, const Vec3* pos, const Vec3* dir, float force);
 
-void InitObject(Object* O, const Vec3* scale, float mass);
+void InitObject(Object* O, Vec3 scale, float mass);
 
 void InitListAABB(ListAABB* listaabb, const unsigned size);
 
-AABB GetOffAABB(const Off* off);
+Vec3 GetOffAABBSize(const Off* off);
 
 #endif // PHYSICS_H

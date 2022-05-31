@@ -35,16 +35,24 @@ void LoadOff(Off** offList, const char* filename)
     fclose(lptr);
 }
 
-void DrawObject(const Model* model, const Object* obj)
+void DrawStatic(const Static* model, Vec3 color)
+{
+    glColor3f(color.x, color.y, color.z);
+    glTranslatef(model->aabb->position.x, model->aabb->position.y, model->aabb->position.z);
+    glScalef(model->scale, model->scale, model->scale);
+    DrawOff(model->off);
+}
+
+void DrawArrow(const Arrow* model)
 {
     glColor3f(1.0, 0, 0);
     glPushMatrix();
-        glTranslatef(obj->position.x,
-                     obj->position.y,
-                     obj->position.z);
-        glRotatef(obj->rotation.x, 0, 1.0f, 0);
-        glRotatef(obj->rotation.y, 1.0f, 0, 0);
-        glScalef(obj->scale.x, obj->scale.y, obj->scale.z);
+        glTranslatef(model->obj.position.x,
+                     model->obj.position.y,
+                     model->obj.position.z);
+        glRotatef(model->obj.rotation.x, 0, 1.0f, 0);
+        glRotatef(model->obj.rotation.y, 1.0f, 0, 0);
+        glScalef(model->obj.scale.x, model->obj.scale.y, model->obj.scale.z);
         glTranslatef(model->offset.x, model->offset.y, model->offset.z); // moves the center
         DrawOff(model->off);
     glPopMatrix();
@@ -71,6 +79,48 @@ void DrawOff(const Off* off)
             );
         glEnd();
     }
+}
+
+void DrawSizeBox(const Vec3* size)
+{
+    Vec3 points[24];
+
+    points[0] = (Vec3){size->x, size->y, size->z};
+    points[1] = (Vec3){size->x, size->y, -size->z};
+    points[2] = (Vec3){size->x, -size->y, size->z};
+    points[3] = (Vec3){size->x, -size->y, -size->z};
+
+    points[4] = (Vec3){-size->x, size->y, size->z};
+    points[5] = (Vec3){-size->x, size->y, -size->z};
+    points[6] = (Vec3){-size->x, -size->y, size->z};
+    points[7] = (Vec3){-size->x, -size->y, -size->z};
+
+    glColor3f(1.0, 1.0, 1.0);
+
+    glBegin(GL_LINE_LOOP);
+        glVertex3f(points[0].x, points[0].y, points[0].z);
+        glVertex3f(points[1].x, points[1].y, points[1].z);
+        glVertex3f(points[3].x, points[3].y, points[3].z);
+        glVertex3f(points[2].x, points[2].y, points[2].z);
+    glEnd();
+
+    glBegin(GL_LINE_LOOP);
+        glVertex3f(points[4].x, points[4].y, points[4].z);
+        glVertex3f(points[5].x, points[5].y, points[5].z);
+        glVertex3f(points[7].x, points[7].y, points[7].z);
+        glVertex3f(points[6].x, points[6].y, points[6].z);
+    glEnd();
+
+    glBegin(GL_LINES);
+        glVertex3f(points[0].x, points[0].y, points[0].z);
+        glVertex3f(points[4].x, points[4].y, points[4].z);
+        glVertex3f(points[1].x, points[1].y, points[1].z);
+        glVertex3f(points[5].x, points[5].y, points[5].z);
+        glVertex3f(points[3].x, points[3].y, points[3].z);
+        glVertex3f(points[7].x, points[7].y, points[7].z);
+        glVertex3f(points[2].x, points[2].y, points[2].z);
+        glVertex3f(points[6].x, points[6].y, points[6].z);
+    glEnd();
 }
 
 void DrawScene()

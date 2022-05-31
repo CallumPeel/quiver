@@ -8,28 +8,33 @@
 
 //------------------------------------------------------------------------
 
-typedef struct Model {
+typedef struct Arrow {
     Off* off;
-    Vec3 offset;
-} Model;
+    Object obj;
+    Vec3 offset; // centroid offset (for aligning tip of arrow to center)
+} Arrow;
+
+typedef struct Static {
+    Off* off;
+    AABB* aabb;
+    float scale;
+} Static;
 
 // uses double inferencing. put the ListOff argument in as &listoff, where listoff is -> Off* listoff
 void LoadOff(Off** offList, const char* filename);
 
-void DrawObject(const Model* model, const Object* obj);
+void DrawStatic(const Static* model, Vec3 color);
+void DrawArrow(const Arrow* model);
 void DrawOff(const Off* off);
-
+void DrawSizeBox(const Vec3* size);
 void DrawScene();
-
 void AddSunAngle(float angle);
-
 void renderGround(void);
 void renderSun();
 void renderTrees(void);
 void renderFences(void);
 void renderTargets();
 void renderHouses(void);
-
 void drawGround(void);
 void drawTargetInnerRing(void);
 void drawTargetSecondRing(void);
@@ -39,7 +44,6 @@ void drawTarget(void);
 void drawTargetWithLegs(void);
 void boxTarget(void);
 void draw5BoxTarget(void);
-
 void drawSun();
 void drawFence(void);
 void drawFenceArea(void);

@@ -18,9 +18,8 @@ float angle = 90.0f;
 Camera Cam;
 
 Off* offList; // array of models (OFF): 1 = arrow, 2 = bone
-
-Object arrowObj;
-Model arrowMod;
+Arrow arrow;
+Static bone;
 ListAABB listaabb;
 
 Plane Ground = {(Vec3){0, 1.0, 0}, -1.0f};
@@ -31,6 +30,8 @@ void GetDeltaTime(int * dt, int * old_t);
 void SetLight(void);
 void WindArrow(Camera const * Cam);
 void ActivateArrow();
+void InitModel();
+void InitStatic();
 
 //------------------------------------------------------------------------
 
@@ -47,15 +48,31 @@ void Init() {
 
     InitCam(&Cam, 0, 0, 0);
 
-    Vec3 aScale = {0.5, 0.5, 0.5};
-    InitObject(&arrowObj, &aScale, 0.5f);
-
     LoadOff(&offList, "OffList.txt");
-    arrowMod.off = &offList[0];
-    arrowMod.offset = (Vec3){0, 0, 0.55};
+    InitModel();
+    InitStatic();
 }
 
-Vec3 aOffset = {0, 0, 0.6};
+void InitModel()
+{
+    InitObject(&arrow.obj, (Vec3){0.5, 0.5, 0.5}, 0.5f);
+    arrow.off = &offList[0];
+    arrow.offset = (Vec3){0, 0, 0.50};
+}
+
+void InitStatic()
+{
+    listaabb.size = 1;
+    listaabb.arr = malloc(sizeof(AABB) * 1);
+
+    listaabb.arr[0].position = (Vec3){0, 0, -10.0};
+    listaabb.arr[0].size = GetOffAABBSize(&offList[1]);
+
+    bone.aabb = &listaabb.arr[0];
+    bone.off = &offList[1];
+    bone.scale = 1.0f;
+    listaabb.arr[0].size = Mul(&listaabb.arr[0].size, bone.scale);
+}
 
 void Display(void) {
     glMatrixMode(GL_MODELVIEW);
@@ -68,7 +85,10 @@ void Display(void) {
     DrawScene();
 
     if(thrown)
-        DrawObject(&arrowMod, &arrowObj);
+        DrawArrow(&arrow);
+
+    DrawStatic(&bone, (Vec3){1.0, 1.0, 0});
+    DrawSizeBox(&bone.aabb->size);
 
     glutSwapBuffers();
 }
@@ -110,7 +130,7 @@ void Clock(int t) {
 
     MoveCam(&Cam, &dt);
     AddSunAngle(10.0f * dt / 1000);
-    UpdatePhysics(&arrowObj, &Ground, &listaabb, dt);
+    UpdatePhysics(&arrow.obj, &Ground, &listaabb, dt);
 
     glutPostRedisplay();
     glutTimerFunc(1000/fps, Clock, t);
@@ -166,5 +186,5 @@ void ActivateArrow()
 {
     thrown = 1;
     Vec3 pos = Add(&Cam.Pos, &Cam.Front);
-    ShootArrow(&arrowObj, &pos, &Cam.Front, 450.0);
+    ShootArrow(&arrow.obj, &pos, &Cam.Front, 450.0);
 }

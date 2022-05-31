@@ -2,6 +2,7 @@
 
 #include "PHYSICS.h"
 #include "MATH_EXT.h"
+#include <stdlib.h>
 
 //------------------------------------------------------------------------
 
@@ -11,7 +12,8 @@ Vec3 _passiveForce = {0, -9.81f, 0};
 
 void step(Object * obj, float dt);
 void UpdateRotation(Object * O);
-void ColliderPointPlane(Object * O, Plane const * P);
+void ColliderPointPlane(Object* O, const Plane* P);
+void ColliderPointAABB(Object* O, const AABB* A);
 
 //------------------------------------------------------------------------
 
@@ -32,8 +34,8 @@ void UpdatePhysics(Object* arrow, const Plane* ground, const ListAABB* listAABB,
 
     UpdateRotation(arrow);
 
-//    for (unsigned i = 0; i < listAABB->size; ++i)
-//        ColliderPointAABB(arrow, &listAABB->arr[i]);
+    for (unsigned i = 0; i < listAABB->size; ++i)
+        ColliderPointAABB(arrow, &listAABB->arr[i]);
 
     ColliderPointPlane(arrow, ground);
 }
@@ -55,13 +57,23 @@ void step(Object* obj, float dt)
     obj->force = (Vec3){0, 0, 0};
 }
 
-void ColliderPointPlane(Object * O, Plane const * P)
+void ColliderPointPlane(Object* O, const Plane* P)
 {
     float coldistance = 0.09f;
-    Vec3 closestPointPlane = ClosestPointPlane(P, &O->position);
-    Vec3 planeToPoint = Sub(&O->position, &closestPointPlane);
+    Vec3 closestPoint = ClosestPointPlane(P, &O->position);
+    Vec3 planeToPoint = Sub(&O->position, &closestPoint);
 
     if(Length_squared(&planeToPoint) < coldistance * coldistance)
+        O->isStatic = 1;
+}
+
+void ColliderPointAABB(Object* O, const AABB* A)
+{
+    float coldistance = 0.09f;
+    Vec3 closestPoint = ClosestPointAABB(A, &O->position);
+    Vec3 AABBToPoint = Sub(&O->position, &closestPoint);
+
+    if(Length_squared(&AABBToPoint) < coldistance * coldistance)
         O->isStatic = 1;
 }
 
@@ -85,7 +97,7 @@ void ShootArrow(Object* arrow, const Vec3* pos, const Vec3* dir, float force)
     arrow->isStatic = 0;
 }
 
-void InitObject(Object* O, const Vec3* scale, float mass)
+void InitObject(Object* O, Vec3 scale, float mass)
 {
     Vec3 zero = {0, 0, 0};
 
@@ -93,10 +105,9 @@ void InitObject(Object* O, const Vec3* scale, float mass)
     O->velocity = zero;
     O->force = zero;
     O->rotation = zero;
-    O->scale = *scale;
+    O->scale = scale;
     O->mass = mass;
     O->isStatic = 1;
-
 }
 
 void InitListAABB(ListAABB* listaabb, const unsigned size)
@@ -105,7 +116,7 @@ void InitListAABB(ListAABB* listaabb, const unsigned size)
     listaabb->arr = malloc(sizeof(AABB) * size);
 }
 
-AABB GetOffAABB(const Off* off)
+Vec3 GetOffAABBSize(const Off* off)
 {
     Vec3 zero = (Vec3){0.0, 0.0, 0.0};
     Vec3 min, max;
@@ -125,9 +136,7 @@ AABB GetOffAABB(const Off* off)
         if (off->verts[i].z > max.z) max.z = off->verts[i].z;
     }
 
-    Vec3 size = GetAABBSize(&min, &max);
-
-    return (AABB){zero, size};
+    return GetAABBSize(&min, &max);
 }
 
 Vec3 GetAABBSize(const Vec3* min, const Vec3* max)
