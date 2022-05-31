@@ -85,7 +85,7 @@ void ShootArrow(Object* arrow, const Vec3* pos, const Vec3* dir, float force)
     arrow->isStatic = 0;
 }
 
-void InitObject(Object* O, float mass, unsigned isStatic)
+void InitObject(Object* O, const Vec3* scale, float mass)
 {
     Vec3 zero = {0, 0, 0};
 
@@ -93,8 +93,10 @@ void InitObject(Object* O, float mass, unsigned isStatic)
     O->velocity = zero;
     O->force = zero;
     O->rotation = zero;
+    O->scale = *scale;
     O->mass = mass;
-    O->isStatic = isStatic;
+    O->isStatic = 1;
+
 }
 
 void InitListAABB(ListAABB* listaabb, const unsigned size)

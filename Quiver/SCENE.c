@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 
+
 //------------------------------------------------------------------------
 
 typedef GLfloat point3[3];
@@ -10,41 +11,42 @@ float _sunAngle = 0.0f;
 
 //------------------------------------------------------------------------
 
-void LoadModels(Off** ListOff, const char* filename)
+void LoadOff(Off** offList, const char* filename)
 {
     char buff[20];
-    unsigned count = 1;
-    FILE* listFilePtr = fopen(filename, "r");
+    unsigned count = 0;
+    FILE* lptr = fopen(filename, "r");
 
-    while(fgets(buff, 20, listFilePtr)) {
+    while(fgets(buff, 20, lptr)) {
         if (buff[strlen(buff)-1] == '\n')
             buff[strlen(buff)-1] = '\0';
-        FILE* offFilePtr = fopen(buff, "r");
+        FILE* optr = fopen(buff, "r");
 
-        *ListOff = realloc(*ListOff, sizeof(Off) * count);
-        ReadOffFile(&(*ListOff)[count-1], buff);
-        NormOff(&(*ListOff)[count-1]);
+        *offList = realloc(*offList, sizeof(Off) * (count+1));
+        ReadOffFile(*offList+count, buff);
+        NormOff(*offList+count);
 
-        fclose(offFilePtr);
+        fclose(optr);
 
         buff[0] = '\0';
         ++count;
     }
 
-    fclose(listFilePtr);
+    fclose(lptr);
 }
 
-void DrawArrow(const Off* off, const Vec3* pos, const Vec3* rot)
+void DrawObject(const Model* model, const Object* obj)
 {
     glColor3f(1.0, 0, 0);
     glPushMatrix();
-        glTranslatef(pos->x,                // position
-                     pos->y,
-                     pos->z);
-        glRotatef(rot->x, 0, 1.0f, 0);      // yaw
-        glRotatef(rot->y, 1.0f, 0, 0);      // pitch
-        glTranslatef(0, 0, 0.75);           // moves center to just below tip
-        DrawOff(off);
+        glTranslatef(obj->position.x,
+                     obj->position.y,
+                     obj->position.z);
+        glRotatef(obj->rotation.x, 0, 1.0f, 0);
+        glRotatef(obj->rotation.y, 1.0f, 0, 0);
+        glScalef(obj->scale.x, obj->scale.y, obj->scale.z);
+        glTranslatef(model->offset.x, model->offset.y, model->offset.z); // moves the center
+        DrawOff(model->off);
     glPopMatrix();
 }
 

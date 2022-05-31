@@ -12,7 +12,8 @@ typedef struct Object {
     Vec3 position,
          velocity,
          force,
-         rotation; // as degrees (yaw, pitch, roll)
+         rotation, // as degrees (yaw, pitch, roll)
+         scale;
     float mass;
     unsigned isStatic;
 } Object;
@@ -30,7 +31,7 @@ void UpdatePhysics(Object* arrow, const Plane* Ground, const ListAABB* listAABB,
 
 void ShootArrow(Object* arrow, const Vec3* pos, const Vec3* dir, float force);
 
-void InitObject(Object* O, float mass, unsigned isStatic);
+void InitObject(Object* O, const Vec3* scale, float mass);
 
 void InitListAABB(ListAABB* listaabb, const unsigned size);
 

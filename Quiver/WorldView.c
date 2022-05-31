@@ -17,9 +17,10 @@ float angle = 90.0f;
 
 Camera Cam;
 
-Off* ListOff; // array of models (OFF): 1 = arrow, 2 = bone
+Off* offList; // array of models (OFF): 1 = arrow, 2 = bone
 
-Object Arrow;
+Object arrowObj;
+Model arrowMod;
 ListAABB listaabb;
 
 Plane Ground = {(Vec3){0, 1.0, 0}, -1.0f};
@@ -45,10 +46,16 @@ void Init() {
     glLineWidth(1.0);
 
     InitCam(&Cam, 0, 0, 0);
-    InitObject(&Arrow, 0.5f, 0);
 
-    LoadModels(&ListOff, "OffList.txt");
+    Vec3 aScale = {0.5, 0.5, 0.5};
+    InitObject(&arrowObj, &aScale, 0.5f);
+
+    LoadOff(&offList, "OffList.txt");
+    arrowMod.off = &offList[0];
+    arrowMod.offset = (Vec3){0, 0, 0.55};
 }
+
+Vec3 aOffset = {0, 0, 0.6};
 
 void Display(void) {
     glMatrixMode(GL_MODELVIEW);
@@ -61,7 +68,7 @@ void Display(void) {
     DrawScene();
 
     if(thrown)
-        DrawArrow(&ListOff[0], &Arrow.position, &Arrow.rotation);
+        DrawObject(&arrowMod, &arrowObj);
 
     glutSwapBuffers();
 }
@@ -103,7 +110,7 @@ void Clock(int t) {
 
     MoveCam(&Cam, &dt);
     AddSunAngle(10.0f * dt / 1000);
-    UpdatePhysics(&Arrow, &Ground, &listaabb, dt);
+    UpdatePhysics(&arrowObj, &Ground, &listaabb, dt);
 
     glutPostRedisplay();
     glutTimerFunc(1000/fps, Clock, t);
@@ -159,5 +166,5 @@ void ActivateArrow()
 {
     thrown = 1;
     Vec3 pos = Add(&Cam.Pos, &Cam.Front);
-    ShootArrow(&Arrow, &pos, &Cam.Front, 450.0);
+    ShootArrow(&arrowObj, &pos, &Cam.Front, 450.0);
 }
