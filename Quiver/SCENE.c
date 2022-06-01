@@ -35,9 +35,8 @@ void LoadOff(Off** offList, const char* filename)
     fclose(lptr);
 }
 
-void DrawStatic(const Static* model, Vec3 color)
+void DrawStatic(const Static* model)
 {
-    glColor3f(color.x, color.y, color.z);
     glTranslatef(model->aabb->position.x, model->aabb->position.y, model->aabb->position.z);
     glScalef(model->scale, model->scale, model->scale);
     DrawOff(model->off);
@@ -521,30 +520,42 @@ void drawSun() {
     glutSolidCylinder(3, 0, 30, 30);
 }
 
-void drawFence(void) {
+void drawFence()
+{
     glPushMatrix();
-        glColor3f(0.5f, 0.35f, 0.05f);
-        glRotatef(90, 1.0f, 0.0f, 0.0f);
-        glutSolidCylinder(0.1, 1, 20, 20);
-
+        // post
+        glTranslatef(0, -0.5, 0);
         glPushMatrix();
-            glRotatef(90, -1.0f, 0.0f, 0.0f);
-            glTranslatef(0.0, -0.1, 0.0);
-            glutSolidCylinder(0.075f, 2, 20, 20);
-
-            glTranslatef(0.0, -0.5, 0.0);
-            glutSolidCylinder(0.075f, 2, 20, 20);
+            glScalef(0.2, 1.0, 0.2);
+            glutSolidCube(1.0);
         glPopMatrix();
+
+        // bottom beam
+        glTranslatef(0, 0, 1.0);
+        glPushMatrix();
+            glScalef(0.15, 0.15, 2.0);
+            glutSolidCube(1.0);
+        glPopMatrix();
+
+        // top beam
+        glTranslatef(0, 0.4, 0);
+        glPushMatrix();
+            glScalef(0.15, 0.15, 2.0);
+            glutSolidCube(1.0);
+        glPopMatrix();
+
     glPopMatrix();
 }
 
 void drawFenceArea(void) {
+    glColor3f(0.4f, 0.25f, 0);
     glPushMatrix();
         glTranslatef(4.75f, 0.0f, -2.7);
 
         glPushMatrix();
-            glRotatef(90, 1.0f, 0.0f, 0.0f);
-            glutSolidCylinder(0.1, 1, 20, 20);
+            glTranslatef(0, -0.5f, 0);
+            glScalef(0.2, 1.0, 0.2);
+            glutSolidCube(1.0);
         glPopMatrix();
 
         for(int i = 0;i < 16;++i) {

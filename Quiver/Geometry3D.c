@@ -8,7 +8,7 @@ bool PointOnLine(Vec3 const * point, Line const * line)
 {
     Vec3 closest = ClosestPointLine(line, point);
     Vec3 diff = Sub(&closest, point);
-    float magsq = Length_squared(&diff);
+    float magsq = LengthSQ(&diff);
 
     return CMP(magsq, 0.0f);
 }
@@ -17,7 +17,7 @@ Vec3 ClosestPointLine(Line const * line, Vec3 const * point)
 {
     Vec3 linevec = Sub(&line->end, line->start);
     Vec3 pointstart = Sub(point, line->start);
-    float t = Dot(&pointstart, &linevec) / Length_squared(&linevec);
+    float t = Dot(&pointstart, &linevec) / LengthSQ(&linevec);
     t = fmaxf(t, 0.0f); // clamp to 0;
     t = fminf(t, 1.0f); // clamp to 1;
     linevec = Mul(&linevec, t);
@@ -53,7 +53,7 @@ Vec3 ClosestPointPlane(Plane const * plane, Vec3 const * point)
 bool PointInSphere(Vec3 const * point, Sphere const * sphere)
 {
     Vec3 v = Sub(point, sphere->position);
-    float magsq = Length_squared(&v);
+    float magsq = LengthSQ(&v);
     float radsq = sphere->radius * sphere->radius;
 
     return magsq < radsq;
@@ -72,7 +72,7 @@ bool SpherePlane(Sphere const * sphere, Plane const * plane)
 {
     Vec3 closest = ClosestPointPlane(plane, sphere->position);
     Vec3 closestToCenter = Sub(sphere->position, &closest);
-    float magsq = Length_squared(&closestToCenter);
+    float magsq = LengthSQ(&closestToCenter);
     float radsq = sphere->radius * sphere->radius;
     return magsq < radsq;
 }

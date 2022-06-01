@@ -46,10 +46,10 @@ Vec3 Cross(Vec3 const * u, Vec3 const * v) {
 }
 
 double Length(Vec3 const * v) {
-    return sqrt(Length_squared(v));
+    return sqrt(LengthSQ(v));
 }
 
-double Length_squared(Vec3 const * v){
+double LengthSQ(Vec3 const * v){
     return Dot(v, v);
 }
 

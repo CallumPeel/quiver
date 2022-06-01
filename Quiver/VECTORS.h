@@ -94,7 +94,7 @@ double Length(Vec3 const * v);
     /// @param      v: pointer to a const Vector. The target vector.
     /// @return     double
 
-double Length_squared(Vec3 const * v);
+double LengthSQ(Vec3 const * v);
 
     /// @brief      Returns a normalized vector
     /// @pre        Vector is initialized
