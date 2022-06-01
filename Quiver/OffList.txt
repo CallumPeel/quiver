@@ -1,2 +1,2 @@
 OFF/arrow.off
-OFF/bone.off
+OFF/TargetOnly.off

@@ -85,7 +85,7 @@ double GetOffBSR(const Off* off, const Vec3* c)
     {
         d = Sub(&off->verts[i], c);
 
-        r_square = Length_squared(&d);
+        r_square = LengthSQ(&d);
 
         if (r_square > rmax_square)
             rmax_square = r_square;

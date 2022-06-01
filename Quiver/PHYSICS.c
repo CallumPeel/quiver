@@ -8,15 +8,21 @@
 
 Vec3 _passiveForce = {0, -9.81f, 0};
 
+AABB beamPosXLow = {(Vec3){4.75, -0.5, -18.7}, (Vec3){0.075, 0.075, 16.0}};
+AABB beamPosXHigh = {(Vec3){4.75, -0.1, -18.7}, (Vec3){0.075, 0.075, 16.0}};
+AABB beamNegXLow = {(Vec3){-7.25, -0.5, -18.7}, (Vec3){0.075, 0.075, 16.0}};
+AABB beamNegXHigh = {(Vec3){-7.25, -0.1, -18.7}, (Vec3){0.075, 0.075, 16.0}};
+AABB beamMidLow = {(Vec3){-1.25, -0.5, -34.7}, (Vec3){6.0, 0.075, 0.075}};
+AABB beamMidHigh = {(Vec3){-1.25, -0.1, -34.7}, (Vec3){6.0, 0.075, 0.075}};
+AABB postPosX = {(Vec3){4.75, -0.5, -0.7}, (Vec3){0.1, 0.5, 0.1}};
+AABB postNegX = {(Vec3){-7.25, -0.5, -0.7}, (Vec3){0.1, 0.5, 0.1}};
+AABB postMid = {(Vec3){-7.25, -0.5, -0.7}, (Vec3){0.1, 0.5, 0.1}};
+
 //------------------------------------------------------------------------
 
 void step(Object * obj, float dt);
 void UpdateRotation(Object * O);
 void ColliderPointPlane(Object* O, const Plane* P);
-void ColliderPointAABB(Object* O, const AABB* A);
-
-//------------------------------------------------------------------------
-
 Vec3 GetAABBSize(const Vec3* min, const Vec3* max);
 
 //------------------------------------------------------------------------
@@ -26,18 +32,54 @@ void SetPassiveForce(const Vec3* F)
     _passiveForce = *F;
 }
 
-void UpdatePhysics(Object* arrow, const Plane* ground, const ListAABB* listAABB, float dt)
+void UpdatePhysics(Object* O, const Plane* ground, const ListAABB* listAABB, float dt)
 {
     dt /= 1000;
 
-    step(arrow, dt);
+    step(O, dt);
 
-    UpdateRotation(arrow);
+    UpdateRotation(O);
 
-    for (unsigned i = 0; i < listAABB->size; ++i)
-        ColliderPointAABB(arrow, &listAABB->arr[i]);
+    for (unsigned i = 0; i < listAABB->size; ++i){
+        if (PointInAABB(&O->position, &listAABB->arr[i]))
+        O->isStatic = 1;
+    }
 
-    ColliderPointPlane(arrow, ground);
+    if ((PointInAABB(&O->position, &beamPosXLow))
+        ||
+        (PointInAABB(&O->position, &beamPosXHigh))
+        ||
+        (PointInAABB(&O->position, &beamNegXLow))
+        ||
+        (PointInAABB(&O->position, &beamNegXHigh))
+        ||
+        (PointInAABB(&O->position, &beamMidLow))
+        ||
+        (PointInAABB(&O->position, &beamMidHigh)))
+    O->isStatic = 1;
+
+    AABB tempPostPos = postPosX;
+    AABB tempPostNeg = postNegX;
+    AABB tempPostMid = postMid;
+
+    for (unsigned i = 0; i < 17; ++i) {
+        tempPostPos.position.z = postPosX.position.z - 2*(i+1);
+        tempPostNeg.position.z = postNegX.position.z - 2*(i+1);
+
+        if (PointInAABB(&O->position, &tempPostPos))
+            O->isStatic = 1;
+        if (PointInAABB(&O->position, &tempPostNeg))
+            O->isStatic = 1;
+    }
+
+    for (unsigned i = 0; i < 5; ++i) {
+        tempPostMid.position.x = postMid.position.x - 2*(i+1);
+        if (PointInAABB(&O->position, &tempPostMid))
+            O->isStatic = 1;
+    }
+
+    if (PlaneEquation(&O->position, ground) < 0.0f)
+        O->isStatic = 1;
 }
 
 void step(Object* obj, float dt)
@@ -59,21 +101,11 @@ void step(Object* obj, float dt)
 
 void ColliderPointPlane(Object* O, const Plane* P)
 {
-    float coldistance = 0.09f;
+    float coldistance = 0.01f;
     Vec3 closestPoint = ClosestPointPlane(P, &O->position);
     Vec3 planeToPoint = Sub(&O->position, &closestPoint);
 
-    if(Length_squared(&planeToPoint) < coldistance * coldistance)
-        O->isStatic = 1;
-}
-
-void ColliderPointAABB(Object* O, const AABB* A)
-{
-    float coldistance = 0.09f;
-    Vec3 closestPoint = ClosestPointAABB(A, &O->position);
-    Vec3 AABBToPoint = Sub(&O->position, &closestPoint);
-
-    if(Length_squared(&AABBToPoint) < coldistance * coldistance)
+    if(LengthSQ(&planeToPoint) < coldistance * coldistance)
         O->isStatic = 1;
 }
 

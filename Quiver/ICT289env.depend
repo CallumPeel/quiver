@@ -909,7 +909,7 @@
 	"VECTORS.h"
 	<math.h>
 
-1653999079 source:c:\exclusions\gh repo\quiver\quiver\worldview.c
+1654001400 source:c:\exclusions\gh repo\quiver\quiver\worldview.c
 	"WorldView.h"
 	"CAMERA.h"
 	"PHYSICS.h"
@@ -1030,12 +1030,12 @@
 	"VECTORS.h"
 	<stdbool.h>
 
-1653999514 source:c:\exclusions\gh repo\quiver\quiver\physics.c
+1654001400 source:c:\exclusions\gh repo\quiver\quiver\physics.c
 	"PHYSICS.h"
 	"MATH_EXT.h"
 	<stdlib.h>
 
-1653995023 c:\exclusions\gh repo\quiver\quiver\physics.h
+1654001400 c:\exclusions\gh repo\quiver\quiver\physics.h
 	"Geometry3D.h"
 	"OFF.h"
 
@@ -1048,11 +1048,11 @@
 1653709063 c:\exclusions\gh repo\quiver\quiver\off.h
 	"VECTORS.h"
 
-1653999079 c:\exclusions\gh repo\quiver\quiver\scene.h
+1654001400 c:\exclusions\gh repo\quiver\quiver\scene.h
 	"OFF.h"
 	"PHYSICS.h"
 
-1653999079 source:c:\exclusions\gh repo\quiver\quiver\scene.c
+1654001400 source:c:\exclusions\gh repo\quiver\quiver\scene.c
 	"SCENE.h"
 	<freeglut.h>
 	<math.h>
@@ -1063,4 +1063,93 @@
 	<freeglut.h>
 
 1653709063 c:\exclusions\gh repo\quiver\quiver\menu.h
+
+1653709063 source:c:\exclusions\quiver\camera.c
+	"CAMERA.h"
+	"MATH_EXT.h"
+
+1653709063 c:\exclusions\quiver\camera.h
+	<freeglut.h>
+	"VECTORS.h"
+
+1652624865 c:\exclusions\quiver\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1652624865 c:\exclusions\quiver\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1652624865 c:\exclusions\quiver\include\freeglut_ext.h
+
+1654012465 c:\exclusions\quiver\vectors.h
+
+1652624865 c:\exclusions\quiver\math_ext.h
+	<math.h>
+	<float.h>
+
+1654012465 source:c:\exclusions\quiver\geometry3d.c
+	"Geometry3D.h"
+	"MATH_EXT.h"
+
+1653709063 c:\exclusions\quiver\geometry3d.h
+	"VECTORS.h"
+	<stdbool.h>
+
+1653709063 source:c:\exclusions\quiver\main.c
+	<freeglut.h>
+	"WorldView.h"
+
+1653709063 c:\exclusions\quiver\worldview.h
+	<freeglut.h>
+
+1652624865 source:c:\exclusions\quiver\math_ext.c
+	"MATH_EXT.h"
+
+1653709063 source:c:\exclusions\quiver\menu.c
+	"MENU.h"
+	<freeglut.h>
+
+1653709063 c:\exclusions\quiver\menu.h
+
+1654012465 source:c:\exclusions\quiver\off.c
+	"OFF.h"
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1653709063 c:\exclusions\quiver\off.h
+	"VECTORS.h"
+
+1654041051 source:c:\exclusions\quiver\physics.c
+	"PHYSICS.h"
+	"MATH_EXT.h"
+	<stdlib.h>
+
+1654041051 c:\exclusions\quiver\physics.h
+	"Geometry3D.h"
+	"OFF.h"
+
+1654036280 source:c:\exclusions\quiver\scene.c
+	"SCENE.h"
+	<freeglut.h>
+	<math.h>
+	<stdio.h>
+
+1654035689 c:\exclusions\quiver\scene.h
+	"OFF.h"
+	"PHYSICS.h"
+
+1654012465 source:c:\exclusions\quiver\vectors.c
+	"VECTORS.h"
+	<math.h>
+
+1654041051 source:c:\exclusions\quiver\worldview.c
+	"WorldView.h"
+	"CAMERA.h"
+	"PHYSICS.h"
+	"OFF.h"
+	"SCENE.h"
 

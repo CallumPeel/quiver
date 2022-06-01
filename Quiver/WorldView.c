@@ -3,23 +3,24 @@
 #include "PHYSICS.h"
 #include "OFF.h"
 #include "SCENE.h"
+#include <time.h>
 
 //------------------------------------------------------------------------
 
 int fps = 80; // frame rate
 int dt; // delta time
+int windDT = 0;
 int winx; // viewport width
 int winy; // viewport height
 
 int thrown = 0;
-GLboolean menu = GL_FALSE;
-float angle = 90.0f;
+float windAngle = 0.0f;
 
 Camera Cam;
 
 Off* offList; // array of models (OFF): 1 = arrow, 2 = bone
 Arrow arrow;
-Static bone;
+Static tgt1, tgt2, tgt3;
 ListAABB listaabb;
 
 Plane Ground = {(Vec3){0, 1.0, 0}, -1.0f};
@@ -32,6 +33,7 @@ void WindArrow(Camera const * Cam);
 void ActivateArrow();
 void InitModel();
 void InitStatic();
+void ChangeWind();
 
 //------------------------------------------------------------------------
 
@@ -50,28 +52,49 @@ void Init() {
 
     LoadOff(&offList, "OffList.txt");
     InitModel();
-    InitStatic();
+
+    srand(time(NULL));
 }
 
 void InitModel()
 {
     InitObject(&arrow.obj, (Vec3){0.5, 0.5, 0.5}, 0.5f);
     arrow.off = &offList[0];
-    arrow.offset = (Vec3){0, 0, 0.50};
+    arrow.offset = (Vec3){0, 0, 0.8f};
 }
 
 void InitStatic()
 {
+    Off* model;
     listaabb.size = 1;
-    listaabb.arr = malloc(sizeof(AABB) * 1);
+    listaabb.arr = malloc(sizeof(AABB) * listaabb.size);
 
+    model = &offList[1];
     listaabb.arr[0].position = (Vec3){0, 0, -10.0};
-    listaabb.arr[0].size = GetOffAABBSize(&offList[1]);
+    listaabb.arr[0].size = GetOffAABBSize(model);
 
-    bone.aabb = &listaabb.arr[0];
-    bone.off = &offList[1];
-    bone.scale = 1.0f;
-    listaabb.arr[0].size = Mul(&listaabb.arr[0].size, bone.scale);
+    tgt1.aabb = &listaabb.arr[0];
+    tgt1.off = model;
+    tgt1.scale = 1.0f;
+    listaabb.arr[0].size = Mul(&listaabb.arr[0].size, tgt1.scale);
+}
+
+void ChangeWind()
+{
+    windDT += dt;
+    windDT %= 1000;
+    if (windDT == 0) windAngle = rand() % 360;
+    windAngle += dt/100.0;
+
+    if (!windDT) windAngle = rand() % 360;
+
+    Vec3 dir;
+    float angle = windAngle * 3.14159 / 180.0;
+    dir.x = -sin(angle) * 16;
+    dir.y = -9.81f;
+    dir.z = -cos(angle) * 16;
+
+    SetPassiveForce(&dir);
 }
 
 void Display(void) {
@@ -86,9 +109,6 @@ void Display(void) {
 
     if(thrown)
         DrawArrow(&arrow);
-
-    DrawStatic(&bone, (Vec3){1.0, 1.0, 0});
-    DrawSizeBox(&bone.aabb->size);
 
     glutSwapBuffers();
 }
@@ -121,12 +141,12 @@ void KeyUp(unsigned char key, int x, int y) {
 }
 
 void Mouse(int x, int y) {
-    if(!menu)   // do not orient camera or capture mouse while menu is open
-        LookCam(&x, &y, &winx, &winy, &Cam);
+    LookCam(&x, &y, &winx, &winy, &Cam);
 }
 
 void Clock(int t) {
     GetDeltaTime(&dt, &t);
+    ChangeWind();
 
     MoveCam(&Cam, &dt);
     AddSunAngle(10.0f * dt / 1000);
@@ -169,17 +189,15 @@ void SetLight(void){
 }
 
 void WindArrow(Camera const * Cam) {
-    if(!menu) { // do not render if menu is open
-        glPushMatrix();
+    glPushMatrix();
             glTranslatef(Cam->Pos.x, Cam->Pos.y, Cam->Pos.z);   // align with cam pos
             glRotatef(-Cam->yaw, 0, 1.0, 0);                    // align with cam -yaw
             glRotatef(Cam->pitch, 1.0, 0, 0);                   // align with cam pitch
             glScalef(0.01, 0.01, 0.01);                         // scale arrow
             glTranslatef(-2.2f, 1.5f, -6.0);                    // position on screen
-            glRotatef(Cam->yaw+angle, 0, 1.0, 0);               // rotate arrow
+            glRotatef(windAngle+180.0+Cam->yaw, 0, 1.0, 0);              // rotate arrow
             drawWindArrow();                                    // draw model
-        glPopMatrix();
-    }
+    glPopMatrix();
 }
 
 void ActivateArrow()

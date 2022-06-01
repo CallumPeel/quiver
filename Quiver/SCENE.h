@@ -23,7 +23,7 @@ typedef struct Static {
 // uses double inferencing. put the ListOff argument in as &listoff, where listoff is -> Off* listoff
 void LoadOff(Off** offList, const char* filename);
 
-void DrawStatic(const Static* model, Vec3 color);
+void DrawStatic(const Static* model);
 void DrawArrow(const Arrow* model);
 void DrawOff(const Off* off);
 void DrawSizeBox(const Vec3* size);
