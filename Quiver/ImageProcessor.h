@@ -4,7 +4,6 @@
 
 #include <stdint.h>
 #include "WorldView.h"
-#include "Camera.h"
 
 typedef struct {
     int width;
