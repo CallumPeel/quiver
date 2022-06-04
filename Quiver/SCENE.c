@@ -1,8 +1,4 @@
-#include "SCENE.h"
-#include <freeglut.h>
-#include <math.h>
-#include <stdio.h>
-
+#include "Scene.h"
 
 //------------------------------------------------------------------------
 

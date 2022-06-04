@@ -941,7 +941,8 @@
 
 1652588053 c:\repositories\quiver\quiver\include\freeglut_ext.h
 
-1654043819 c:\repositories\quiver\quiver\vectors.h
+1654379874 c:\repositories\quiver\quiver\vectors.h
+	<math.h>
 
 1652588053 c:\repositories\quiver\quiver\math_ext.h
 	<math.h>
@@ -1327,15 +1328,15 @@
 	"MathExt.h"
 	<stdlib.h>
 
-1654043819 source:c:\repositories\quiver\quiver\scene.c
-	"SCENE.h"
+1654379837 source:c:\repositories\quiver\quiver\scene.c
+	"Scene.h"
+
+1654379786 c:\repositories\quiver\quiver\scene.h
+	"OFF.h"
+	"PHYSICS.h"
 	<freeglut.h>
 	<math.h>
 	<stdio.h>
-
-1654043819 c:\repositories\quiver\quiver\scene.h
-	"OFF.h"
-	"PHYSICS.h"
 
 1654379236 source:c:\repositories\quiver\quiver\mathext.c
 	"MathExt.h"

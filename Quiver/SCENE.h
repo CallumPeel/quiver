@@ -5,6 +5,9 @@
 
 #include "OFF.h"
 #include "PHYSICS.h"
+#include <freeglut.h>
+#include <math.h>
+#include <stdio.h>
 
 //------------------------------------------------------------------------
 
