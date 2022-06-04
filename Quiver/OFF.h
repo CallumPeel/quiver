@@ -1,7 +1,7 @@
 #ifndef OFF_V1_0_H_INCLUDED
 #define OFF_V1_0_H_INCLUDED
 
-#include "VECTORS.h"
+#include "Vectors.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

@@ -924,9 +924,9 @@
 1654377576 source:c:\repositories\quiver\quiver\camera.c
 	"Camera.h"
 
-1654379446 c:\repositories\quiver\quiver\camera.h
+1654380255 c:\repositories\quiver\quiver\camera.h
 	<freeglut.h>
-	"VECTORS.h"
+	"Vectors.h"
 	"MathExt.h"
 
 1652588053 c:\repositories\quiver\quiver\include\freeglut.h
@@ -1274,8 +1274,8 @@
 1654377630 source:c:\repositories\quiver\quiver\geometry3d.c
 	"Geometry3D.h"
 
-1654379433 c:\repositories\quiver\quiver\geometry3d.h
-	"VECTORS.h"
+1654380268 c:\repositories\quiver\quiver\geometry3d.h
+	"Vectors.h"
 	<stdbool.h>
 	"MathExt.h"
 

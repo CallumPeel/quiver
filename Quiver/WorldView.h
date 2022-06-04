@@ -5,9 +5,9 @@
 
 #include <freeglut.h>
 #include "Camera.h"
-#include "PHYSICS.h"
-#include "OFF.h"
-#include "SCENE.h"
+#include "Physics.h"
+#include "Off.h"
+#include "Scene.h"
 #include <stb_image.h>
 #include "ImageProcessor.h"
 #include <time.h>
