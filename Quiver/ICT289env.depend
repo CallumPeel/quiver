@@ -1187,11 +1187,11 @@
 	"VECTORS.h"
 	<stdbool.h>
 
-1654359842 source:d:\repositories\quiver\quiver\main.c
+1654369346 source:d:\repositories\quiver\quiver\main.c
 	<freeglut.h>
 	"WorldView.h"
 
-1654359631 d:\repositories\quiver\quiver\worldview.h
+1654368035 d:\repositories\quiver\quiver\worldview.h
 	<freeglut.h>
 
 1654359631 source:d:\repositories\quiver\quiver\math_ext.c
@@ -1235,15 +1235,14 @@
 	"VECTORS.h"
 	<math.h>
 
-1654359631 source:d:\repositories\quiver\quiver\imageprocessor.c
+1654369346 source:d:\repositories\quiver\quiver\imageprocessor.c
 	"ImageProcessor.h"
+	"CAMERA.h"
 	<stb_image.h>
 
-1654359631 d:\repositories\quiver\quiver\imageprocessor.h
-	<stdlib.h>
-	<stdio.h>
+1654366414 d:\repositories\quiver\quiver\imageprocessor.h
 	<stdint.h>
-	<freeglut.h>
+	"WorldView.h"
 
 1654359631 d:\repositories\quiver\quiver\include\stb_image.h
 	"stb_image.h"
@@ -1262,7 +1261,7 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1654359811 source:d:\repositories\quiver\quiver\worldview.c
+1654369687 source:d:\repositories\quiver\quiver\worldview.c
 	"WorldView.h"
 	"CAMERA.h"
 	"PHYSICS.h"

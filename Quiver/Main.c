@@ -29,6 +29,8 @@ int main(int argc, char **argv) {
 
         /// mouse input
     glutPassiveMotionFunc(Mouse);
+    glutMotionFunc(Mouse);
+    glutMouseFunc(onMouseClick);
 
         /// initialize default values
     Init();
