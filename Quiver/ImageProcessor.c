@@ -1,8 +1,4 @@
 #include "ImageProcessor.h"
-#include "CAMERA.h"
-
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
 
 void loadImage(Image * img, const char * filename) {
     stbi_set_flip_vertically_on_load(1);

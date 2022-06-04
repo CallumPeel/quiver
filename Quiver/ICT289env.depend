@@ -968,8 +968,15 @@
 	<freeglut.h>
 	"WorldView.h"
 
-1654377101 c:\repositories\quiver\quiver\worldview.h
+1654378874 c:\repositories\quiver\quiver\worldview.h
 	<freeglut.h>
+	"Camera.h"
+	"PHYSICS.h"
+	"OFF.h"
+	"SCENE.h"
+	<stb_image.h>
+	"ImageProcessor.h"
+	<time.h>
 
 1652583945 c:\repositories\quiver\quiver\objects.h
 	"OffData.h"
@@ -1013,14 +1020,8 @@
 	"VECTORS.h"
 	<math.h>
 
-1654377101 source:c:\repositories\quiver\quiver\worldview.c
+1654378718 source:c:\repositories\quiver\quiver\worldview.c
 	"WorldView.h"
-	"CAMERA.h"
-	"PHYSICS.h"
-	"OFF.h"
-	"SCENE.h"
-	"ImageProcessor.h"
-	<time.h>
 
 1653987920 source:c:\exclusions\gh repo\quiver\quiver\geometry3d.c
 	"Geometry3D.h"
@@ -1278,14 +1279,13 @@
 	<stdbool.h>
 	"MATH_EXT.h"
 
-1654377101 source:c:\repositories\quiver\quiver\imageprocessor.c
+1654378409 source:c:\repositories\quiver\quiver\imageprocessor.c
 	"ImageProcessor.h"
-	"CAMERA.h"
-	<stb_image.h>
 
-1654377704 c:\repositories\quiver\quiver\imageprocessor.h
+1654378862 c:\repositories\quiver\quiver\imageprocessor.h
 	<stdint.h>
 	"WorldView.h"
+	"Camera.h"
 
 1654377101 c:\repositories\quiver\quiver\include\stb_image.h
 	"stb_image.h"

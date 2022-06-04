@@ -1,8 +1,10 @@
 #ifndef IMAGEPROCESSOR_H_INCLUDED
 #define IMAGEPROCESSOR_H_INCLUDED
+#define STB_IMAGE_IMPLEMENTATION
 
 #include <stdint.h>
 #include "WorldView.h"
+#include "Camera.h"
 
 typedef struct {
     int width;
