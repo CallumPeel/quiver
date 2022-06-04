@@ -1,5 +1,4 @@
-#include "VECTORS.h"
-#include <math.h>
+#include "Vectors.h"
 
 Vec3 Neg(Vec3 const * v) {
     return (Vec3) {

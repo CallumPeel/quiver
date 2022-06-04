@@ -3,8 +3,11 @@
 
 //------------------------------------------------------------------------
 
-#include "OFF.h"
-#include "PHYSICS.h"
+#include "Off.h"
+#include "Physics.h"
+#include <freeglut.h>
+#include <math.h>
+#include <stdio.h>
 
 //------------------------------------------------------------------------
 

@@ -1,6 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include <freeglut.h>
+
 //------------------------------------------------------------------------
 
 void ShowMenu(void);

@@ -1,10 +1,4 @@
 #include "WorldView.h"
-#include "CAMERA.h"
-#include "PHYSICS.h"
-#include "OFF.h"
-#include "SCENE.h"
-#include "ImageProcessor.h"
-#include <time.h>
 
 //------------------------------------------------------------------------
 
@@ -187,7 +181,7 @@ void onMouseClick(int button, int state, int x, int y) {
         if(state == GLUT_DOWN) {
             buttonflag = 1;
         } else {
-            if(buttonflag = 1) ActivateArrow();
+            if(buttonflag == 1) ActivateArrow();
             buttonflag = 0;
         }
     }

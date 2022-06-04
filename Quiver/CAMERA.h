@@ -10,7 +10,8 @@
 //------------------------------------------------------------------------
 
 #include <freeglut.h>
-#include "VECTORS.h"
+#include "Vectors.h"
+#include "MathExt.h"
 
 //------------------------------------------------------------------------
     // should be replaced with a config file but meh

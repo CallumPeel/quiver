@@ -4,8 +4,9 @@
 //------------------------------------------------------------------------
 // LIBRARIES
 
-#include "VECTORS.h"
+#include "Vectors.h"
 #include <stdbool.h>
+#include "MathExt.h"
 
 //------------------------------------------------------------------------
 // STRUCT DEFINES

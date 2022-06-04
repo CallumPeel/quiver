@@ -6,6 +6,8 @@
 #ifndef VECTORS_H_INCLUDED
 #define VECTORS_H_INCLUDED
 
+#include <math.h>
+
 //----------------------------------------------------------------------
 
     /// @struct     Vec3
