@@ -14,6 +14,14 @@ int a = 0;
 
 //------------------------------------------------------------------------
 
+double stringPos = 0.36;
+int buttonflag = 0;
+
+Off BowArrowModel;
+Off BowModel;
+
+//------------------------------------------------------------------------
+
 int fps = 80; // frame rate
 int dt; // delta time
 int windDT = 0;
@@ -62,6 +70,9 @@ void Init() {
 
     loadImage(&img, "test.png");
 
+    ReadOffFile(&BowArrowModel, "OFF/arrow.off");
+    ReadOffFile(&BowModel, "OFF/bow.off");
+
     srand(time(NULL));
 }
 
@@ -69,7 +80,7 @@ void InitModel()
 {
     InitObject(&arrow.obj, (Vec3){0.5, 0.5, 0.5}, 0.5f);
     arrow.off = &offList[0];
-    arrow.offset = (Vec3){0, 0, 0.8f};
+    arrow.offset = (Vec3){0.0f, 0, 0.8f}; //arrow.offset = (Vec3){0.8f, 0, 0.8f}; //offsetting the arrow results in collision being offset
 }
 
 void InitStatic()
@@ -119,11 +130,20 @@ void Display(void) {
         WindArrow(&Cam);
         DrawScene();
 
+        BowPosition(&Cam);
+
         if(thrown)
             DrawArrow(&arrow);
         glutSwapBuffers();
 
     } else {
+
+        glMatrixMode(GL_MODELVIEW);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glLoadIdentity();
+
+        InitCam(&Cam, 0, 0, 0); //Set camera back to default position to look at image
+
         displayImage(&img);
         if(a == 0) {
             glutSwapBuffers();
@@ -151,7 +171,6 @@ void KeyDown(unsigned char key, int x, int y) {
             quit++;
             if(quit == 2) exit(0);
             break;
-        case ' ': ActivateArrow(); break;
         default: break;
     }
 
@@ -160,6 +179,18 @@ void KeyDown(unsigned char key, int x, int y) {
 
 void KeyUp(unsigned char key, int x, int y) {
     MoveCamKeyUp(&key);
+}
+
+void onMouseClick(int button, int state, int x, int y) {
+
+    if(button == GLUT_LEFT_BUTTON) {
+        if(state == GLUT_DOWN) {
+            buttonflag = 1;
+        } else {
+            if(buttonflag = 1) ActivateArrow();
+            buttonflag = 0;
+        }
+    }
 }
 
 void Mouse(int x, int y) {
@@ -173,6 +204,8 @@ void Clock(int t) {
     MoveCam(&Cam, &dt);
     AddSunAngle(10.0f * dt / 1000);
     UpdatePhysics(&arrow.obj, &Ground, &listaabb, dt);
+
+    pullString();
 
     glutPostRedisplay();
     glutTimerFunc(1000/fps, Clock, t);
@@ -222,9 +255,55 @@ void WindArrow(Camera const * Cam) {
     glPopMatrix();
 }
 
+void BowPosition(Camera const * cam) {
+
+    DrawOff(&BowArrowModel);
+    glColor3f(1, 0, 0);
+    glPushMatrix();                 //Move with camera
+        glTranslatef(cam->Pos.x, cam->Pos.y, cam->Pos.z);
+        glRotatef(-cam->yaw, 0, 1.0, 0);
+        glRotatef(cam->pitch, 1.0, 0, 0);
+        glTranslatef(0.8, 0, -2.5);
+
+        if(buttonflag == 1) {       //Draw arrow on right click
+            glPushMatrix();
+                glTranslatef(-0.01, 0, stringPos - 0.75);
+                glScalef(1, 1, 1);
+                DrawOff(&BowArrowModel);
+            glPopMatrix();
+        }
+
+        glPushMatrix();             //Draw string
+            glColor3f(1, 1, 1);
+            glBegin(GL_LINES);
+                glVertex3f(0, 0.74, 0.36);
+                glVertex3f(0, 0, stringPos);
+            glEnd();
+            glBegin(GL_LINES);
+                glVertex3f(0, -0.74, 0.36);
+                glVertex3f(0, 0, stringPos);
+            glEnd();
+        glPopMatrix();
+        glColor3f(0.3, 0.2, 0.2);
+        glRotatef(90, 0, 1, 0);     //Draw bow
+        glRotatef(90, 1, 0, 0);
+        glScalef(0.025, 0.025, 0.025);
+        DrawOff(&BowModel);
+    glPopMatrix();
+}
+
+void pullString(void) {
+    if(buttonflag == 1) {
+        if(stringPos > 0.65) {
+            stringPos = 0.655;
+        } else stringPos += 0.0035;
+    }
+    if(buttonflag == 0) stringPos = 0.36;
+}
+
 void ActivateArrow()
 {
     thrown = 1;
     Vec3 pos = Add(&Cam.Pos, &Cam.Front);
-    ShootArrow(&arrow.obj, &pos, &Cam.Front, 450.0);
+    ShootArrow(&arrow.obj, &pos, &Cam.Front, pow(250, stringPos + 0.64));
 }

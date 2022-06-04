@@ -1,10 +1,8 @@
 #ifndef IMAGEPROCESSOR_H_INCLUDED
 #define IMAGEPROCESSOR_H_INCLUDED
 
-#include <stdlib.h> //REMOVE WHEN ADDED TO WORLD VIEW
-#include <stdio.h>
 #include <stdint.h>
-#include <freeglut.h>
+#include "WorldView.h"
 
 typedef struct {
     int width;
