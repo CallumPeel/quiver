@@ -62,10 +62,10 @@
 			<Add library="openGL32" />
 			<Add directory="lib" />
 		</Linker>
-		<Unit filename="CAMERA.c">
+		<Unit filename="CAMERA.h" />
+		<Unit filename="Camera.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="CAMERA.h" />
 		<Unit filename="Geometry3D.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -74,41 +74,37 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="ImageProcessor.h" />
-		<Unit filename="MATH_EXT.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="MATH_EXT.h" />
-		<Unit filename="MENU.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="MENU.h" />
 		<Unit filename="Main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="OFF.c">
+		<Unit filename="MathExt.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="OFF.h" />
-		<Unit filename="PHYSICS.c">
+		<Unit filename="MathExt.h" />
+		<Unit filename="Menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="PHYSICS.h" />
-		<Unit filename="SCENE.c">
+		<Unit filename="Menu.h" />
+		<Unit filename="Off.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="SCENE.h" />
-		<Unit filename="VECTORS.c">
+		<Unit filename="Off.h" />
+		<Unit filename="Physics.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="VECTORS.h" />
+		<Unit filename="Physics.h" />
+		<Unit filename="Scene.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Scene.h" />
+		<Unit filename="Vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Vectors.h" />
 		<Unit filename="WorldView.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="WorldView.h" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

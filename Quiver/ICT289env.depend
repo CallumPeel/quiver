@@ -1017,9 +1017,8 @@
 1652867840 source:c:\repositories\quiver\quiver\renderobject.c
 	"RenderObject.h"
 
-1654043819 source:c:\repositories\quiver\quiver\vectors.c
-	"VECTORS.h"
-	<math.h>
+1654379889 source:c:\repositories\quiver\quiver\vectors.c
+	"Vectors.h"
 
 1654378903 source:c:\repositories\quiver\quiver\worldview.c
 	"WorldView.h"
