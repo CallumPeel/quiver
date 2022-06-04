@@ -6,6 +6,7 @@
 
 #include "VECTORS.h"
 #include <stdbool.h>
+#include "MATH_EXT.h"
 
 //------------------------------------------------------------------------
 // STRUCT DEFINES
