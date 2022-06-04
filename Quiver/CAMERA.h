@@ -11,7 +11,7 @@
 
 #include <freeglut.h>
 #include "VECTORS.h"
-#include "MATH_EXT.h"
+#include "MathExt.h"
 
 //------------------------------------------------------------------------
     // should be replaced with a config file but meh
