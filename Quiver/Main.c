@@ -3,8 +3,8 @@
 
 //------------------------------------------------------------------------
 
-const int WIN_WIDTH = 1600; // viewport width
-const int WIN_HEIGHT = 1200; // viewport height
+const int WIN_WIDTH = 800; // viewport width
+const int WIN_HEIGHT = 600; // viewport height
 const unsigned DELAY = 500; // start delay (milliseconds)
 
 //------------------------------------------------------------------------

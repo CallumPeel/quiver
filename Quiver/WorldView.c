@@ -3,7 +3,14 @@
 #include "PHYSICS.h"
 #include "OFF.h"
 #include "SCENE.h"
+#include "ImageProcessor.h"
 #include <time.h>
+
+//------------------------------------------------------------------------
+
+Image img;
+int quit = 0;
+int a = 0;
 
 //------------------------------------------------------------------------
 
@@ -53,6 +60,8 @@ void Init() {
     LoadOff(&offList, "OffList.txt");
     InitModel();
 
+    loadImage(&img, "test.png");
+
     srand(time(NULL));
 }
 
@@ -98,19 +107,29 @@ void ChangeWind()
 }
 
 void Display(void) {
-    glMatrixMode(GL_MODELVIEW);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
 
-    //SetLight();
-    LookAt(&Cam);
-    WindArrow(&Cam);
-    DrawScene();
+    if(quit == 0) {
 
-    if(thrown)
-        DrawArrow(&arrow);
+        glMatrixMode(GL_MODELVIEW);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glLoadIdentity();
 
-    glutSwapBuffers();
+        //SetLight();
+        LookAt(&Cam);
+        WindArrow(&Cam);
+        DrawScene();
+
+        if(thrown)
+            DrawArrow(&arrow);
+        glutSwapBuffers();
+
+    } else {
+        displayImage(&img);
+        if(a == 0) {
+            glutSwapBuffers();
+            a++;
+        }
+    }
 }
 
 void Reshape(int w, int h) {
@@ -128,7 +147,10 @@ void Reshape(int w, int h) {
 
 void KeyDown(unsigned char key, int x, int y) {
     switch(key){
-        case 'q': exit(0); break;
+        case 'q':
+            quit++;
+            if(quit == 2) exit(0);
+            break;
         case ' ': ActivateArrow(); break;
         default: break;
     }

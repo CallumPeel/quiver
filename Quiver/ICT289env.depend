@@ -1153,3 +1153,121 @@
 	"OFF.h"
 	"SCENE.h"
 
+1654359631 source:d:\repositories\quiver\quiver\camera.c
+	"CAMERA.h"
+	"MATH_EXT.h"
+
+1654359631 d:\repositories\quiver\quiver\camera.h
+	<freeglut.h>
+	"VECTORS.h"
+
+1654359631 d:\repositories\quiver\quiver\include\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1654359631 d:\repositories\quiver\quiver\include\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1654359631 d:\repositories\quiver\quiver\include\freeglut_ext.h
+
+1654359631 d:\repositories\quiver\quiver\vectors.h
+
+1654359631 d:\repositories\quiver\quiver\math_ext.h
+	<math.h>
+	<float.h>
+
+1654359631 source:d:\repositories\quiver\quiver\geometry3d.c
+	"Geometry3D.h"
+	"MATH_EXT.h"
+
+1654359631 d:\repositories\quiver\quiver\geometry3d.h
+	"VECTORS.h"
+	<stdbool.h>
+
+1654359842 source:d:\repositories\quiver\quiver\main.c
+	<freeglut.h>
+	"WorldView.h"
+
+1654359631 d:\repositories\quiver\quiver\worldview.h
+	<freeglut.h>
+
+1654359631 source:d:\repositories\quiver\quiver\math_ext.c
+	"MATH_EXT.h"
+
+1654359631 source:d:\repositories\quiver\quiver\menu.c
+	"MENU.h"
+	<freeglut.h>
+
+1654359631 d:\repositories\quiver\quiver\menu.h
+
+1654359631 source:d:\repositories\quiver\quiver\off.c
+	"OFF.h"
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1654359631 d:\repositories\quiver\quiver\off.h
+	"VECTORS.h"
+
+1654359631 source:d:\repositories\quiver\quiver\physics.c
+	"PHYSICS.h"
+	"MATH_EXT.h"
+	<stdlib.h>
+
+1654359631 d:\repositories\quiver\quiver\physics.h
+	"Geometry3D.h"
+	"OFF.h"
+
+1654359631 source:d:\repositories\quiver\quiver\scene.c
+	"SCENE.h"
+	<freeglut.h>
+	<math.h>
+	<stdio.h>
+
+1654359631 d:\repositories\quiver\quiver\scene.h
+	"OFF.h"
+	"PHYSICS.h"
+
+1654359631 source:d:\repositories\quiver\quiver\vectors.c
+	"VECTORS.h"
+	<math.h>
+
+1654359631 source:d:\repositories\quiver\quiver\imageprocessor.c
+	"ImageProcessor.h"
+	<stb_image.h>
+
+1654359631 d:\repositories\quiver\quiver\imageprocessor.h
+	<stdlib.h>
+	<stdio.h>
+	<stdint.h>
+	<freeglut.h>
+
+1654359631 d:\repositories\quiver\quiver\include\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1654359811 source:d:\repositories\quiver\quiver\worldview.c
+	"WorldView.h"
+	"CAMERA.h"
+	"PHYSICS.h"
+	"OFF.h"
+	"SCENE.h"
+	"ImageProcessor.h"
+	<time.h>
+

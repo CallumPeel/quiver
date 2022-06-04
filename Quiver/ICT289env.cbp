@@ -70,6 +70,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Geometry3D.h" />
+		<Unit filename="ImageProcessor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ImageProcessor.h" />
 		<Unit filename="MATH_EXT.c">
 			<Option compilerVar="CC" />
 		</Unit>
