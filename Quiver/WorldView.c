@@ -62,7 +62,7 @@ void Init() {
     LoadOff(&offList, "OffList.txt");
     InitModel();
 
-    loadImage(&img, "ExitPng.png");
+    loadImage(&img, "test.png");
 
     ReadOffFile(&BowArrowModel, "OFF/arrow.off");
     ReadOffFile(&BowModel, "OFF/bow.off");
