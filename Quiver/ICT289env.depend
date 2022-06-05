@@ -1154,13 +1154,13 @@
 	"OFF.h"
 	"SCENE.h"
 
-1654359631 source:d:\repositories\quiver\quiver\camera.c
-	"CAMERA.h"
-	"MATH_EXT.h"
+1654433841 source:d:\repositories\quiver\quiver\camera.c
+	"Camera.h"
 
-1654359631 d:\repositories\quiver\quiver\camera.h
+1654433841 d:\repositories\quiver\quiver\camera.h
 	<freeglut.h>
-	"VECTORS.h"
+	"Vectors.h"
+	"MathExt.h"
 
 1654359631 d:\repositories\quiver\quiver\include\freeglut.h
 	"freeglut_std.h"
@@ -1174,74 +1174,79 @@
 
 1654359631 d:\repositories\quiver\quiver\include\freeglut_ext.h
 
-1654359631 d:\repositories\quiver\quiver\vectors.h
+1654433841 d:\repositories\quiver\quiver\vectors.h
+	<math.h>
 
 1654359631 d:\repositories\quiver\quiver\math_ext.h
 	<math.h>
 	<float.h>
 
-1654359631 source:d:\repositories\quiver\quiver\geometry3d.c
+1654433841 source:d:\repositories\quiver\quiver\geometry3d.c
 	"Geometry3D.h"
-	"MATH_EXT.h"
 
-1654359631 d:\repositories\quiver\quiver\geometry3d.h
-	"VECTORS.h"
+1654433841 d:\repositories\quiver\quiver\geometry3d.h
+	"Vectors.h"
 	<stdbool.h>
+	"MathExt.h"
 
 1654369346 source:d:\repositories\quiver\quiver\main.c
 	<freeglut.h>
 	"WorldView.h"
 
-1654368035 d:\repositories\quiver\quiver\worldview.h
+1654433841 d:\repositories\quiver\quiver\worldview.h
 	<freeglut.h>
+	"Camera.h"
+	"Physics.h"
+	"Off.h"
+	"Scene.h"
+	<stb_image.h>
+	"ImageProcessor.h"
+	<time.h>
 
 1654359631 source:d:\repositories\quiver\quiver\math_ext.c
 	"MATH_EXT.h"
 
-1654359631 source:d:\repositories\quiver\quiver\menu.c
-	"MENU.h"
+1654433841 source:d:\repositories\quiver\quiver\menu.c
+	"Menu.h"
+
+1654433841 d:\repositories\quiver\quiver\menu.h
 	<freeglut.h>
 
-1654359631 d:\repositories\quiver\quiver\menu.h
+1654433841 source:d:\repositories\quiver\quiver\off.c
+	"Off.h"
 
-1654359631 source:d:\repositories\quiver\quiver\off.c
-	"OFF.h"
+1654433841 d:\repositories\quiver\quiver\off.h
+	"Vectors.h"
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 
-1654359631 d:\repositories\quiver\quiver\off.h
-	"VECTORS.h"
+1654433841 source:d:\repositories\quiver\quiver\physics.c
+	"Physics.h"
 
-1654359631 source:d:\repositories\quiver\quiver\physics.c
-	"PHYSICS.h"
-	"MATH_EXT.h"
-	<stdlib.h>
-
-1654359631 d:\repositories\quiver\quiver\physics.h
+1654433841 d:\repositories\quiver\quiver\physics.h
 	"Geometry3D.h"
-	"OFF.h"
+	"Off.h"
+	"MathExt.h"
+	<stdlib.h>
 
-1654359631 source:d:\repositories\quiver\quiver\scene.c
-	"SCENE.h"
+1654433841 source:d:\repositories\quiver\quiver\scene.c
+	"Scene.h"
+
+1654433841 d:\repositories\quiver\quiver\scene.h
+	"Off.h"
+	"Physics.h"
 	<freeglut.h>
 	<math.h>
 	<stdio.h>
 
-1654359631 d:\repositories\quiver\quiver\scene.h
-	"OFF.h"
-	"PHYSICS.h"
+1654433841 source:d:\repositories\quiver\quiver\vectors.c
+	"Vectors.h"
 
-1654359631 source:d:\repositories\quiver\quiver\vectors.c
-	"VECTORS.h"
-	<math.h>
-
-1654369346 source:d:\repositories\quiver\quiver\imageprocessor.c
+1654433841 source:d:\repositories\quiver\quiver\imageprocessor.c
 	"ImageProcessor.h"
-	"CAMERA.h"
-	<stb_image.h>
 
-1654366414 d:\repositories\quiver\quiver\imageprocessor.h
+1654434295 d:\repositories\quiver\quiver\imageprocessor.h
 	<stdint.h>
 	"WorldView.h"
 
@@ -1262,14 +1267,8 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1654369687 source:d:\repositories\quiver\quiver\worldview.c
+1654434295 source:d:\repositories\quiver\quiver\worldview.c
 	"WorldView.h"
-	"CAMERA.h"
-	"PHYSICS.h"
-	"OFF.h"
-	"SCENE.h"
-	"ImageProcessor.h"
-	<time.h>
 
 1654380671 source:c:\repositories\quiver\quiver\geometry3d.c
 	"Geometry3D.h"
@@ -1343,4 +1342,11 @@
 1654380671 c:\repositories\quiver\quiver\mathext.h
 	<math.h>
 	<float.h>
+
+1654433841 d:\repositories\quiver\quiver\mathext.h
+	<math.h>
+	<float.h>
+
+1654433841 source:d:\repositories\quiver\quiver\mathext.c
+	"MathExt.h"
 
